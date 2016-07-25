@@ -1,0 +1,68 @@
+* {
+	header: 0;
+	margin: 0;
+}
+
+body{
+    background: lightgrey !important;
+    font-family: equity !important;
+}
+
+#nav1.container-fluid{
+    padding-top:10px;
+  
+}
+
+#signup.container{
+    float:left;
+    width:350px;
+}
+
+#login.container{
+    float:left;
+    width:350px;
+}
+.page-header{
+    height:10em;
+    background-color:grey;
+    color:white;
+    margin-top:0em;
+    padding-top:2.5em;
+    padding-left:2em;  
+}
+
+
+.page-header p{
+    font-size:18px;  
+}
+
+p{
+    font-size:14px;
+}
+
+.header{
+    font-size:4em;
+    font-family:papyrus;
+}
+
+.social-icons{
+    margin-top:-75px;
+    text-align:right;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width:100%;
+      margin:auto;
+      
+  }
+
+.col-md-4{
+    margin-top:28px;
+    
+}
+
+.row{
+    margin-top:15px;
+    
+}
