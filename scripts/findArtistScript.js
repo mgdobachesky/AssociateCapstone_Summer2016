@@ -1,3 +1,4 @@
+(function() {
 fillLetter = function(data) {
 	document.getElementById('tblArtists').innerHTML = "";
 	for(var i = 0; i < data.message.body.artist_list.length; i++){
@@ -10,7 +11,7 @@ fillLetter = function(data) {
 
 linkClick = function(artistId) {
 	localStorage.setItem("artistId", artistId);
-	window.location.assign("/bubbaLyrics/views/artist.php");
+	window.location.assign("/bubbaLyrics/index.php?action=artist");
 }
 
 getData = function(pageNum){
@@ -59,3 +60,4 @@ $(document).ready(function(){
 		getData(++pageNum);
 	});
 });
+}())

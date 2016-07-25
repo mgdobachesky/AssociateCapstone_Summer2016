@@ -3,6 +3,16 @@
 	margin: 0;
 }
 
+footer{
+	width: 100%;
+	clear: both;
+	text-align:center;
+	height:10em;
+    background-color:grey;
+    color:white;
+    padding-top:4em;
+}
+
 body{
     background: lightgrey !important;
     font-family: equity !important;
@@ -14,7 +24,7 @@ body{
 }
 
 #signup.container{
-    float:left;
+    float:left; 
     width:350px;
 }
 

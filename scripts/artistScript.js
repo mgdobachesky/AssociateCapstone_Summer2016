@@ -1,3 +1,4 @@
+(function() {
 getArtist = function(artistId, pageNum){
 		$.ajax({
 			type: "GET",
@@ -105,7 +106,7 @@ fillSongs = function(data) {
 storeSongId = function(songId) {
 	//console.log(data);
 	localStorage.setItem("songId", songId);
-	window.location.assign("/bubbaLyrics/views/lyrics.php");
+	window.location.assign("/bubbaLyrics/index.php?action=lyrics");
 }
 
 albumClick = function(albumId) {
@@ -138,3 +139,4 @@ $(document).ready(function(){
 	});
 	
 });
+}())

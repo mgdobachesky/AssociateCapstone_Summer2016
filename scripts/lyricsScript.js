@@ -1,3 +1,4 @@
+(function() {
 getSong = function(songId){
 		$.ajax({
 			type: "GET",
@@ -57,3 +58,4 @@ $(document).ready(function(){
 	//console.log(songId);
 	getSong(songId);
 });
+}())
