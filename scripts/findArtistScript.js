@@ -18,6 +18,7 @@ getData = function(regEx, pageNum){
 			data: {
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
 				q_artist:regEx,
+				s_artist_rating:"DESC",
 				page:pageNum,
 				page_size:"20",
 				format:"jsonp",
