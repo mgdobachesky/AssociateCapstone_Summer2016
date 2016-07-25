@@ -1,6 +1,15 @@
 (function() {
-htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li><a href='/bubbaLyrics/index.php?action=findArtist'>Top Artists</a></li><li><a href='/bubbaLyrics/index.php?action=artist'>Artist</a></li><li class='active'>Lyrics</li>";
-document.getElementById('breadCrumbs').innerHTML = htmlString;	
+var fromWhere = localStorage.getItem("fromWhere");
+
+if (fromWhere == "top") {
+	htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li><a href='/bubbaLyrics/index.php?action=findArtist'>Top Artists</a></li><li><a href='/bubbaLyrics/index.php?action=artist'>Artist</a></li><li class='active'>Lyrics</li>";
+	document.getElementById('breadCrumbs').innerHTML = htmlString;	
+}
+else {
+	htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li><a href='/bubbaLyrics/index.php?action=searchResults'>Search</a></li><li><a href='/bubbaLyrics/index.php?action=artist'>Artist</a></li><li class='active'>Lyrics</li>";
+	document.getElementById('breadCrumbs').innerHTML = htmlString;	
+}
+
 
 getSong = function(songId){
 		$.ajax({

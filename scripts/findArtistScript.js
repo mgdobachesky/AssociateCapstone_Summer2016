@@ -1,4 +1,6 @@
 (function() {
+var fromWhere = "top";
+localStorage.setItem("fromWhere", fromWhere);
 	
 htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li class='active'>Top Artists</li>";
 document.getElementById('breadCrumbs').innerHTML = htmlString;

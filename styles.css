@@ -14,6 +14,12 @@ body{
     margin-bottom:100px;
 }
 
+#songName{
+    background-color:#336699;
+    margin-top:-20px;
+    width:100%;
+}
+
 
 @font-face{
     font-family: papyrus; src: url('PAPYRUS.TTF');
@@ -88,6 +94,15 @@ p{
 .articleStyle{
     margin-top:20px;
 }
+
+canvas{
+    width:100%; 
+    background-color:#262626;
+}
+
+
+
+
 
 footer{
 	clear: both;

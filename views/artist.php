@@ -1,8 +1,11 @@
 <script type="text/javascript" src="/bubbaLyrics/scripts/artistScript.js"></script>
+<script type="text/javascript" src="/bubbaLyrics/scripts/canvas.js"></script>
 
 <div class="row">
 	<div class="container-fluid">
-		<div class="col-md-12" style="background-color:#262626; color:white;">
+		<div class="col-md-12" style= "background-color:#262626;color:white;">
+            <canvas id="canvas" width="1800" height="100"></canvas>
+      <img id="musicNote" width="0" height="0" src="/bubbaLyrics/images/musicNote.png" alt="Music Note">
 			<h1 id="songName" style="text-align:center;"></h1>
 		</div>
 	</div>
