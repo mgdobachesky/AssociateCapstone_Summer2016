@@ -70,73 +70,42 @@
             </nav>
             
         
-            <div class="container">    
-                <div class="row">
-                    <div class="col-lg-3" style="padding-left: 0px; padding-right: 0px; margin-right:25px;">
-                      <img src="http://www.metaltraveller.com/images/dream_theater/dream_theater_logo.jpg" class="img-responsive"  style="width:300px;height:245px">
-                    </div>
-                    <div class="col-lg-8" style="background-color:grey; color:white;">
-                        <h3>Dream Theater</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <h5><strong><i>Click an album to display songs from that album...Click a song to view lyrics...</i></strong></h5>
-                    <div class="col-lg-3" style="padding-left: 0px; padding-right: 0px; margin-right:10px;">
-                          <div class="panel panel-primary">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading">Albums</div>
-                      <table id="tblAlbums" class="table table-hover"></table>
-                    </div>
-                    </div>
-                       
-                    <div class="col-lg-8">      
-                        <div class="panel panel-primary">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading">Songs</div>
-                          <table class="table table-hover">
-                            <tbody>
-                              <tr>
-                                <td><a href="lyrics.html">The Looking Glass</a></td>
-                              </tr>
-                              <tr>
-                                <td><a href="#">The Enemy Inside</a></td>
-                              </tr>
-                              <tr>
-                                <td><a href="#">Enigma Machine</a></td>
-                              </tr>
-                                <tr>
-                                <td><a href="#">The Bigger Picture</a></td>
-                              </tr>
-                                <tr>
-                                <td><a href="#">Behind the Veil</a></td>
-                              </tr>
-                                <tr>
-                                <td><a href="#">Surrender to Reason</a></td>
-                              </tr>
-                                <tr>
-                                <td><a href="#">Along for the Ride</a></td>
-                              </tr>
-                                <tr>
-                                <td><a href="#">Illumination Theory</a></td>
-                              </tr>
-                                <tr>
-                                <td><a href="#">False Awakening Suite</a></td>
-                              </tr>
-
-                            </tbody>
-                          </table>
-                        </div>
-                    </div>
-            
-                    </div>
-                </div>
-            
-            
-            <footer>
-                
-            </footer>     
+              
+			<div class="row">
+			<div class="container-fluid">
+				<div class="col-md-12" style="background-color:grey; color:white;">
+					<h1 id="songName"></h1>
+				</div>
+			</div>
+			</div>
+			
+			<div class="row">
+			<div class="container-fluid">
+				
+				<div class="col-md-6">
+				<div class="panel panel-primary">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Albums</div>
+					<table id="tblAlbums" class="table table-hover"></table>
+					</div>
+					<ul class="pager">
+						<li id="albumPrev"><a href="#">Previous</a></li>
+						<li id="albumNxt"><a href="#">Next</a></li>
+					</ul>
+				</div>
+			
+			   
+				
+				<div class="col-md-6">
+				<div class="panel panel-primary">
+					<!-- Default panel contents -->
+					<div id="albumName" class="panel-heading">Songs</div>
+					<table id="tblSongs" class="table table-hover"></table>
+					</div>
+				</div>
+				
+			</div>
+			</div>
         </div>
     </body>
 </html>
