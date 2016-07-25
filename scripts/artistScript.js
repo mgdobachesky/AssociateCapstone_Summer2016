@@ -59,6 +59,7 @@ getTrack = function(albumId){
 			data: {
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
 				album_id:albumId,
+				f_has_lyrics:"true",
 				format:"jsonp",
 				page_size:"100",
 				page:"1",
@@ -104,7 +105,7 @@ fillSongs = function(data) {
 storeSongId = function(songId) {
 	//console.log(data);
 	localStorage.setItem("songId", songId);
-	window.location.assign("lyrics.html");
+	window.location.assign("/bubbaLyrics/views/lyrics.php");
 }
 
 albumClick = function(albumId) {

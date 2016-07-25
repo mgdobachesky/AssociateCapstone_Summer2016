@@ -4,16 +4,11 @@
     <title>Bubba Lyrics</title>  
     <meta chartset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- Ajax -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<!-- Link to stylesheet -->
-    <link rel=stylesheet href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bubbaLyrics/styles.css">
     
 </head>
     <body>
@@ -23,7 +18,7 @@
             
             <div class="page-header">     
                 <div class="header">
-                    <a href="index.html"><span class="glyphicon glyphicon-fire"></span></a>
+                    <a href="/bubbaLyrics/views/home.php"><span class="glyphicon glyphicon-fire"></span></a>
                     Bubba Lyrics
                     <p>Your go to source for finding the lyrics to the songs you love!</p>
                     <div class="social-icons">
@@ -33,44 +28,32 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
-               
-            
-           <nav class="navbar navbar-default">
+			
+            <nav class="navbar navbar-default" style="padding-bottom:14px;">
                 <div id="nav1" class="container-fluid">
                     <div class="navbar-header">
-                        <a class="btn btn-large btn btn-primary" style="float:left; margin-top:10px;" href="findArtist.html">Find an Artist</a>
-                        
-                        
+                        <a class="btn btn-large btn btn-primary" style="float:left; margin-top:10px;" href="/bubbaLyrics/views/findArtist.php">Top Artists</a>
                         <ul class="nav navbar-nav">
-                            <ol class="breadcrumb" style="margin-top: 8px; margin-left:50px;">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="profile.html">Profile</a></li>
-                            <li class="active">Add Song</li>
-                            
-                        </ol>
+                            <ol class="breadcrumb">
+                            <li><a href="/bubbaLyrics/views/home.php">Home</a></li>
+                            <li><a href="/bubbaLyrics/views/profile.php">Profile</a></li>
+                            <li class="active">Update/Delete Song</li>
+							</ol>
                         </ul>
                     </div>
                     
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                            <li><a href="signUp.html"><span class="glyphicon glyphicon-check"></span> Sign Up</a></li>
-                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        </ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/bubbaLyrics/views/profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+						<li><a href="/bubbaLyrics/views/signUp.php"><span class="glyphicon glyphicon-check"></span> Sign Up</a></li>
+						<li><a href="/bubbaLyrics/views/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</ul>
     
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group" >
                             <input type="text" class="form-control" placeholder="Search...">
                         </div>
-                        
-                            <a class="btn btn-large btn btn-primary"  href="searchResults.html">Go!</a>
+                        <a class="btn btn-large btn btn-primary"  href="/bubbaLyrics/views/searchResults.php">Go!</a>
                     </form>
-                    
-                    <ul class="nav navbar-nav navbar-right">
-        
-                    </ul>
                 </div>          
             </nav>
             
@@ -78,13 +61,19 @@
             
             
             <div id="signup" class="container">
-                <h2><strong>Add Song</strong></h2>
+                <h2><strong>Update/Delete Song</strong></h2>
                 <form role="form">
+                    <div class="form-group" >
+                        <label for="search">Search:</label>
+                        <input type="text" class="form-control" placeholder="Search for a song to edit...">
+                    </div>
+                    <br>
+                    <br>
                     <div class="form-group">
                         <label for="artist">Artist:</label>
                         <input type="artist" class="form-control" id="artist" placeholder="Enter artist...">
                     </div>
-      
+                
                     <div class="form-group">
                       <label for="album">Album:</label>
                       <input type="album" class="form-control" id="album" placeholder="Enter album...">
@@ -110,7 +99,8 @@
                         <textarea class="form-control" rows="5" id="lyrics"></textarea>
                     </div>
                    
-                    <button type="submit" class="btn btn-primary">Add Song</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
                 </form>
             </div>
             

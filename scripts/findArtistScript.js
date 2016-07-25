@@ -10,7 +10,7 @@ fillLetter = function(data) {
 
 linkClick = function(artistId) {
 	localStorage.setItem("artistId", artistId);
-	window.location.assign("artist.html");
+	window.location.assign("/bubbaLyrics/views/artist.php");
 }
 
 getData = function(pageNum){
