@@ -9,22 +9,23 @@ fillLetter = function(data) {
 }
 
 linkClick = function(artistId) {
-	console.log(artistId);
+	localStorage.setItem("artistId", artistId);
+	window.location.assign("artist.html");
 }
 
-getData = function(regEx, pageNum){
+getData = function(pageNum){
 		$.ajax({
 			type: "GET",
 			data: {
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
-				q_artist:regEx,
 				s_artist_rating:"DESC",
+				country:"US",
 				page:pageNum,
 				page_size:"20",
 				format:"jsonp",
 				callback:"jsonp_callback"
 			},
-			url: "http://api.musixmatch.com/ws/1.1/artist.search?",
+			url: "http://api.musixmatch.com/ws/1.1/chart.artists.get?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
 			contentType: 'application/json',
@@ -42,31 +43,19 @@ getData = function(regEx, pageNum){
 
 $(document).ready(function(){
 	var pageNum = 1;
-	var idRec = "";
-	var regRec = "";
-	var clickFunc = {id:['#lstA', '#lstB', '#lstC', '#lstD', '#lstE', '#lstF', '#lstG', '#lstH', '#lstI', '#lstJ', '#lstK', '#lstL', '#lstM', '#lstN', '#lstO', '#lstP', '#lstQ', '#lstR', '#lstS', '#lstT', '#lstU', '#lstV', '#lstW', '#lstX', '#lstY', '#lstZ'], reg:['/^[aA]/', '/^[bB]/', '/^[cC]/', '/^[dD]/', '/^[eE]/', '/^[fF]/', '/^[gG]/', '/^[hH]/', '/^[iI]/', '/^[jJ]/', '/^[kK]/', '/^[lL]/', '/^[mM]/', '/^[nN]/', '/^[oO]/', '/^[pP]/', '/^[qQ]/', '/^[rR]/', '/^[sS]/', '/^[tT]/', '/^[uU]/', '/^[vV]/', '/^[wW]/', '/^[xX]/', '/^[yY]/', '/^[zZ]/']};
-	for(var i = 0; i < clickFunc.id.length; i++){
-		$(clickFunc.id[i]).click({param: clickFunc.reg[i]}, function(event){
-			getData(event.data.param, pageNum);
-			idRec = "lst" + event.target.childNodes[0].textContent;
-			regRec = event.data.param;
-		});
-	}
+	getData(pageNum);
 	
 	$('#lnkPrev').click(function(event){
 		if(pageNum == 0){
 			pageNum = 1;
 		}
-		if(regRec!= ""){
-			getData(regRec, --pageNum);
-		}
+		getData(--pageNum);
 	});
+	
 	$('#lnkNxt').click(function(event){
 		if(pageNum == 0){
 			pageNum = 1;
 		}
-		if(regRec != ""){
-			getData(regRec, ++pageNum);
-		}
+		getData(++pageNum);
 	});
 });
