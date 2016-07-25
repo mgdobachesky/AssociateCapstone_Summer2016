@@ -18,15 +18,28 @@
 	$value = "";
 	
 	if($action == "loggingIn"){
-		if(!empty($credit['adminLevel'])){
+		if(!empty($credit['adminLevel']) && $credit['adminLevel'] == 1){
 			$_SESSION['userid'] = $credit['adminLevel'];
 			exit();
 		} else {
-			if(empty($loginUsername)) {
-				$value = "Invalid username or password";
+			$value = "Error: Invalid username or password";
 				echo($value);
 				exit();
-			}
+		}
+	}
+	
+	if($action == "signUpLog"){
+		$loginUsername = $_POST['username'];
+		$loginPwd = $_POST['pwd'];
+		$credit = loginFunc($db, $loginUsername, $loginPwd);
+	
+		if(!empty($credit['adminLevel']) && $credit['adminLevel'] == 1){
+			$_SESSION['userid'] = $credit['adminLevel'];
+			echo("0");
+			exit();
+		} else {
+			echo("1");
+			exit();
 		}
 	}
 	
@@ -74,7 +87,7 @@
 		break;
 		
 		case "signUpDetails":
-		addUser($db, $fName, $lName, $userName, $email, $password);
+		$addedUser = addUser($db, $fName, $lName, $userName, $email, $password);
 		break;
 		
 		case "logout":

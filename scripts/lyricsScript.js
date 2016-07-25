@@ -1,4 +1,7 @@
 (function() {
+htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li><a href='/bubbaLyrics/index.php?action=findArtist'>Top Artists</a></li><li><a href='/bubbaLyrics/index.php?action=artist'>Artist</a></li><li class='active'>Lyrics</li>";
+document.getElementById('breadCrumbs').innerHTML = htmlString;	
+
 getSong = function(songId){
 		$.ajax({
 			type: "GET",
@@ -11,19 +14,14 @@ getSong = function(songId){
 			url: "http://api.musixmatch.com/ws/1.1/track.get?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json',
-			success: function(data) {
-				//console.log(data);
-				document.getElementById('lyricTitle').innerText = data.message.body.track.artist_name;
-				document.getElementById('albumTitle').innerText = data.message.body.track.album_name;
-				document.getElementById('songTitle').innerText = data.message.body.track.track_name;
-				getLyric(data.message.body.track.track_id);				
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-			} 
+			contentType: 'application/json'
+		})
+		.done(function(data){
+			//console.log(data);
+			document.getElementById('lyricTitle').innerText = data.message.body.track.artist_name;
+			document.getElementById('albumTitle').innerText = data.message.body.track.album_name;
+			document.getElementById('songTitle').innerText = data.message.body.track.track_name;
+			getLyric(data.message.body.track.track_id);	
 		});
 	}
 	
@@ -39,23 +37,17 @@ getLyric = function(lyricId){
 			url: "http://api.musixmatch.com/ws/1.1/track.lyrics.get?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json',
-			success: function(data) {
-				//console.log(data);
-				var htmlString = data.message.body.lyrics.lyrics_body;
-				//console.log(htmlString);
-				if(htmlString != "") {
-					document.getElementById('lyricSpace').innerText = htmlString;	
-				} else {
-					document.getElementById('lyricSpace').innerText = "No lyrics on file for this track";
-				}
-				
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-			} 
+			contentType: 'application/json'
+		})
+		.done(function(data){
+			//console.log(data);
+			var htmlString = data.message.body.lyrics.lyrics_body;
+			//console.log(htmlString);
+			if(htmlString != "") {
+				document.getElementById('lyricSpace').innerText = htmlString;	
+			} else {
+				document.getElementById('lyricSpace').innerText = "No lyrics on file for this track";
+			}
 		});
 	}
 

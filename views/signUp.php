@@ -1,9 +1,9 @@
 <script type="text/javascript" src="/bubbaLyrics/scripts/signUpScript.js"></script>
-
+<div class="col-md-4 col-md-offset-4">
 <div id="signup" class="container" style="float:left;">
 	<h2><strong>Sign Up</strong></h2>
 	<form role="form" action="#" id="signUpForm" name="signUpForm">
-	<fieldset>
+	   <fieldset>
 	
 		<div class="form-group">
 			<label for="first">First Name:</label>
@@ -42,7 +42,7 @@
 		<input type="submit" id="btnSignUp" name="btnSignUp" class="btn btn-primary" value="Sign Up!" />
 		
 		</fieldset>
-		
 	</form>
 </div> 
+</div>
 <div id="signUpFeedback" style="float:left;"></div>

@@ -1,4 +1,6 @@
 (function() {
+	htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li class='active'>Login</li>";
+	document.getElementById('breadCrumbs').innerHTML = htmlString;
 	$(document).ready(function(){
 		$(function(){
 			$('#loginForm').on('submit', function(event){
@@ -13,10 +15,13 @@
 				.done(function(data){
 					//console.log(data);
 					if(data == ""){
-						window.location.assign("/bubbaLyrics/index.php");
+                       //alert("You are now logged in. You will now be redirected to the home page.");
+					   window.location.assign("/bubbaLyrics/index.php");
+                        
 					} else {
-						document.getElementById('loginFeedback').innerHTML = data;
+						document.getElementById('loginFeedback').innerHTML = data;   
 					}
+                    
 				});
 				event.preventDefault();
 			});

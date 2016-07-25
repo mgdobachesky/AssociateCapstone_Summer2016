@@ -1,5 +1,5 @@
 <script type="text/javascript" src="/bubbaLyrics/scripts/loginScript.js"></script>
-
+<div class="col-md-4 col-md-offset-4">
 <div id="login" class="container" style="float:left;">
 	<h2><strong>Login</strong></h2>
 	<form role="form" id="loginForm" action="#" name="loginForm">
@@ -19,7 +19,10 @@
 		</div>
 		
 		<input type="submit" name="loginSubmit" id="loginSubmit" value="Login" class="btn btn-primary" />
-		
 	</form>
 </div>
+</div>
+
 <div id="loginFeedback" style="float:left;"></div>
+
+

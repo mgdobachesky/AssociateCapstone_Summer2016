@@ -1,4 +1,7 @@
 (function() {
+htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li><a href='/bubbaLyrics/index.php?action=findArtist'>Top Artists</a></li><li class='active'>Artist</li>";
+document.getElementById('breadCrumbs').innerHTML = htmlString;	
+	
 getArtist = function(artistId, pageNum){
 		$.ajax({
 			type: "GET",
@@ -11,17 +14,12 @@ getArtist = function(artistId, pageNum){
 			url: "http://api.musixmatch.com/ws/1.1/artist.get?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json',
-			success: function(data) {
-				//console.log(data);
-				document.getElementById('songName').innerHTML = data.message.body.artist.artist_name;
-				getAlbums(data, pageNum);
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-			} 
+			contentType: 'application/json'
+		})
+		.done(function(data){
+			//console.log(data);
+			document.getElementById('songName').innerHTML = data.message.body.artist.artist_name;
+			getAlbums(data, pageNum);
 		});
 	}
 	
@@ -41,16 +39,11 @@ getAlbums = function(data, pageNum){
 			url: "http://api.musixmatch.com/ws/1.1/artist.albums.get?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json',
-			success: function(data) {
-				//console.log(data);
-				fillAlbums(data);
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-			} 
+			contentType: 'application/json'
+		})
+		.done(function(data){
+			//console.log(data);
+			fillAlbums(data);
 		});
 	}	
 	
@@ -69,23 +62,18 @@ getTrack = function(albumId){
 			url: "http://api.musixmatch.com/ws/1.1/album.tracks.get?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json',
-			success: function(data) {
-				//console.log(data);
-				fillSongs(data);
-				try {
-					document.getElementById('albumName').innerHTML = data.message.body.track_list[0].track.album_name;
-				}
-				catch(error) {
-					//console.log(error);
-					document.getElementById('albumName').innerHTML = "No tracks on file for this album";
-				}
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-			} 
+			contentType: 'application/json'
+		})
+		.done(function(data){
+			//console.log(data);
+			fillSongs(data);
+			try {
+				document.getElementById('albumName').innerHTML = data.message.body.track_list[0].track.album_name;
+			}
+			catch(error) {
+				//console.log(error);
+				document.getElementById('albumName').innerHTML = "No tracks on file for this album";
+			}
 		});
 	}
 	
@@ -133,6 +121,7 @@ $(document).ready(function(){
 	var pageNum = 1;
 	artistId = localStorage.getItem("artistId");
 	getArtist(artistId, pageNum);
+   
 	
 	$('#albumPrev').click(function(event){
 		if(pageNum == 0){

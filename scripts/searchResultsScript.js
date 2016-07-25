@@ -1,4 +1,7 @@
 (function() {
+	htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li class='active'>Search</li>";
+	document.getElementById('breadCrumbs').innerHTML = htmlString;
+	
 	fillLetter = function(data) {
 	document.getElementById('tblSearchResults').innerHTML = "";
 	for(var i = 0; i < data.message.body.artist_list.length; i++){
@@ -22,23 +25,18 @@ getContent = function(pageNum, searchContent){
 				q_artist:searchContent,
 				s_artist_rating:"DESC",
 				page:pageNum,
-				page_size:"10",
+				page_size:"12",
 				format:"jsonp",
 				callback:"jsonp_callback"
 			},
 			url: "http://api.musixmatch.com/ws/1.1/artist.search?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json',
-			success: function(data) {
-				//console.log(data);
-				fillLetter(data);
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-			} 
+			contentType: 'application/json'
+		})
+		.done(function(data){
+			//console.log(data);
+			fillLetter(data);
 		});
 	}
 

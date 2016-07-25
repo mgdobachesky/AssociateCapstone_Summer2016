@@ -3,56 +3,20 @@
 	margin: 0;
 }
 
-footer{
-	width: 100%;
-	clear: both;
-	text-align:center;
-	height:10em;
-    background-color:grey;
-    color:white;
-    padding-top:4em;
+html{
+    position:relative;
+    min-height: 100%;
 }
 
 body{
-    background: lightgrey !important;
+    background:#f2f2f2 !important;
     font-family: equity !important;
-}
-
-#nav1.container-fluid{
-    padding-top:10px;
-  
-}
-
-#signup.container{
-    float:left; 
-    width:350px;
-}
-
-#login.container{
-    float:left;
-    width:350px;
-}
-.page-header{
-    height:10em;
-    background-color:grey;
-    color:white;
-    margin-top:0em;
-    padding-top:2.5em;
-    padding-left:2em;  
+    margin-bottom:100px;
 }
 
 
-.page-header p{
-    font-size:18px;  
-}
-
-p{
-    font-size:14px;
-}
-
-.header{
-    font-size:4em;
-    font-family:papyrus;
+@font-face{
+    font-family: papyrus; src: url('PAPYRUS.TTF');
 }
 
 .social-icons{
@@ -60,19 +24,101 @@ p{
     text-align:right;
 }
 
+.header{
+    font-size:4em;
+    font-family:papyrus;
+    color:white;
+}
+
+.page-header{
+    
+    height:10em;
+    background-color:lightgrey;
+    color:white;
+    margin-top:0em;
+    padding-top:2.5em;
+    padding-left:2em;  
+}
+
+.page-header p{
+    font-size:18px;  
+    color:white;
+}
+
+p{
+    font-size:14px;
+    color:black;
+}
+
+#nav1.container-fluid{
+    padding-top:10px;
+  
+}
+
+.nav navbar-nav navbar-right li{
+    color:white;
+}
+
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width:100%;
       margin:auto;
-      
   }
 
-.col-md-4{
-    margin-top:28px;
+.carousel-caption p{
+    color:white;
     
 }
 
-.row{
-    margin-top:15px;
-    
+.newsHead{
+    text-align:center;
+    font-family:papyrus;
+}
+
+#accordion{
+    width:60%;
+    margin:auto;
+}
+
+.ui-accordion-header{
+   background:#262626;
+   color:white;
+}
+
+.articleStyle{
+    margin-top:20px;
+}
+
+footer{
+	clear: both;
+	text-align:center;
+    background-color:#262626;
+    padding-top:2em;
+    position:absolute;
+    bottom:0;
+    width:98.5%;
+    height:5em;
+    margin-top:4em; 
+}
+
+footer p{
+    color:white;
+}
+
+#signUpFeedback{
+    font-family:arial;
+    margin-top:6em;
+}
+
+#loginFeedback{
+    font-family:arial;
+    margin-top:6em;
+}
+
+#signup.container{
+    width:350px;
+}
+
+#login.container{
+    width:350px;
 }

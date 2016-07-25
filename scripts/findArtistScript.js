@@ -1,4 +1,8 @@
 (function() {
+	
+htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li class='active'>Top Artists</li>";
+document.getElementById('breadCrumbs').innerHTML = htmlString;
+	
 fillLetter = function(data) {
 	document.getElementById('tblArtists').innerHTML = "";
 	for(var i = 0; i < data.message.body.artist_list.length; i++){
@@ -22,29 +26,25 @@ getData = function(pageNum){
 				s_artist_rating:"DESC",
 				country:"US",
 				page:pageNum,
-				page_size:"10",
+				page_size:"12",
 				format:"jsonp",
 				callback:"jsonp_callback"
 			},
 			url: "http://api.musixmatch.com/ws/1.1/chart.artists.get?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json',
-			success: function(data) {
-				//console.log(data);
-				fillLetter(data);
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-			} 
+			contentType: 'application/json'
+		})
+		.done(function(data){
+			//console.log(data);
+			fillLetter(data);
 		});
 	}
 
 $(document).ready(function(){
 	var pageNum = 1;
 	getData(pageNum);
+    
 	
 	$('#lnkPrev').click(function(event){
 		if(pageNum == 0){
