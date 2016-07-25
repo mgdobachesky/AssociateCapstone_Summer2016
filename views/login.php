@@ -1,6 +1,8 @@
-<div id="login" class="container">
+<script type="text/javascript" src="/bubbaLyrics/scripts/loginScript.js"></script>
+
+<div id="login" class="container" style="float:left;">
 	<h2><strong>Login</strong></h2>
-	<form role="form" action="." method="post">
+	<form role="form" id="loginForm" action="#" name="loginForm">
 	
 		<div class="form-group">
 		  <label for="username">Username:</label>
@@ -20,3 +22,4 @@
 		
 	</form>
 </div>
+<div id="loginFeedback" style="float:left;"></div>

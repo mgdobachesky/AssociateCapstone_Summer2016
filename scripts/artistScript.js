@@ -73,7 +73,13 @@ getTrack = function(albumId){
 			success: function(data) {
 				//console.log(data);
 				fillSongs(data);
-				document.getElementById('albumName').innerHTML = data.message.body.track_list[0].track.album_name;
+				try {
+					document.getElementById('albumName').innerHTML = data.message.body.track_list[0].track.album_name;
+				}
+				catch(error) {
+					//console.log(error);
+					document.getElementById('albumName').innerHTML = "No tracks on file for this album";
+				}
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -87,7 +93,11 @@ fillAlbums = function(data) {
 	document.getElementById('tblAlbums').innerHTML = "";
 	for(var i = 0; i < data.message.body.album_list.length; i++){
 		var htmlString = "<tr>";
-		htmlString += "<td><a href='javascript: albumClick(" + data.message.body.album_list[i].album.album_id + ")'>" + data.message.body.album_list[i].album.album_name + "</a></td>";
+		if(data.message.body.album_list[i].album.album_release_type == "Single"){
+			htmlString += "<td><a href='javascript: albumClick(" + data.message.body.album_list[i].album.album_id + ")'>" + data.message.body.album_list[i].album.album_name + " (Single)</a></td>";
+		} else {
+			htmlString += "<td><a href='javascript: albumClick(" + data.message.body.album_list[i].album.album_id + ")'>" + data.message.body.album_list[i].album.album_name + "</a></td>";
+		}
 		htmlString += "</tr>";
 		document.getElementById('tblAlbums').innerHTML += htmlString;
 	}

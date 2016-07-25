@@ -17,11 +17,16 @@
 	$credit = loginFunc($db, $loginUsername, $loginPwd);
 	$value = "";
 	
-	if(!empty($credit['adminLevel'])){
-		$_SESSION['userid'] = $credit['adminLevel'];
-	} else {
-		if(!empty($_POST['loginSubmit'])) {
-			$value = "Invalid username or password";
+	if($action == "loggingIn"){
+		if(!empty($credit['adminLevel'])){
+			$_SESSION['userid'] = $credit['adminLevel'];
+			exit();
+		} else {
+			if(empty($loginUsername)) {
+				$value = "Invalid username or password";
+				echo($value);
+				exit();
+			}
 		}
 	}
 	
@@ -42,10 +47,6 @@
 		
 		case "findArtist":
 		include("views/findArtist.php");
-		break;
-		
-		case "home":
-		include("views/home.php");
 		break;
 		
 		case "login":
@@ -73,8 +74,7 @@
 		break;
 		
 		case "signUpDetails":
-		$returnVal = addUser($db, $fName, $lName, $userName, $email, $password);
-		echo json_encode($returnVal);
+		addUser($db, $fName, $lName, $userName, $email, $password);
 		break;
 		
 		case "logout":

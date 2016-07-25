@@ -43,7 +43,13 @@ getLyric = function(lyricId){
 			success: function(data) {
 				//console.log(data);
 				var htmlString = data.message.body.lyrics.lyrics_body;
-				document.getElementById('lyricSpace').innerText = htmlString;		
+				//console.log(htmlString);
+				if(htmlString != "") {
+					document.getElementById('lyricSpace').innerText = htmlString;	
+				} else {
+					document.getElementById('lyricSpace').innerText = "No lyrics on file for this track";
+				}
+				
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);

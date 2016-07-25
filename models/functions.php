@@ -1,7 +1,7 @@
 <?php
 
 function addUser($db, $fName, $lName, $userName, $email, $password) {
-	$sql = "INSERT INTO bubbalyricsusers (ID, fName, lName, userName, email, password, adminLevel) VALUES (NULL, :fName, :lName, :userName, :email, :password, 1)";
+	$sql = "INSERT INTO users (ID, fName, lName, userName, email, password, adminLevel) VALUES (NULL, :fName, :lName, :userName, :email, :password, 1)";
 	try {
 		$ps = $db->prepare($sql);
 		$ps->bindValue(':fName', $fName);
@@ -17,7 +17,7 @@ function addUser($db, $fName, $lName, $userName, $email, $password) {
 }
 
 function loginFunc($db, $loginUsername, $loginPwd){
-    $sql = "SELECT adminLevel FROM bubbalyricsusers WHERE userName='$loginUsername' AND password='$loginPwd'";
+    $sql = "SELECT adminLevel FROM users WHERE userName='$loginUsername' AND password='$loginPwd'";
     $results = $db->query($sql);
     $row = $results->fetch();
     return $row;

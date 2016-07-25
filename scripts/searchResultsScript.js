@@ -1,32 +1,32 @@
 (function() {
-fillLetter = function(data) {
-	document.getElementById('tblArtists').innerHTML = "";
+	fillLetter = function(data) {
+	document.getElementById('tblSearchResults').innerHTML = "";
 	for(var i = 0; i < data.message.body.artist_list.length; i++){
 		var htmlString = "<tr>";
-		htmlString += "<td><a href='javascript: linkClick(" + data.message.body.artist_list[i].artist.artist_id + ")'>" + data.message.body.artist_list[i].artist.artist_name + "</a></td>";
+		htmlString += "<td><a href='javascript: linkSearchClick(" + data.message.body.artist_list[i].artist.artist_id + ")'>" + data.message.body.artist_list[i].artist.artist_name + "</a></td>";
 		htmlString += "</tr>";
-		document.getElementById('tblArtists').innerHTML += htmlString;
+		document.getElementById('tblSearchResults').innerHTML += htmlString;
 	}
 }
 
-linkClick = function(artistId) {
+linkSearchClick = function(artistId) {
 	localStorage.setItem("artistId", artistId);
 	window.location.assign("/bubbaLyrics/index.php?action=artist");
 }
 
-getData = function(pageNum){
+getContent = function(pageNum, searchContent){
 		$.ajax({
 			type: "GET",
 			data: {
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
+				q_artist:searchContent,
 				s_artist_rating:"DESC",
-				country:"US",
 				page:pageNum,
 				page_size:"10",
 				format:"jsonp",
 				callback:"jsonp_callback"
 			},
-			url: "http://api.musixmatch.com/ws/1.1/chart.artists.get?",
+			url: "http://api.musixmatch.com/ws/1.1/artist.search?",
 			dataType: "jsonp",
 			jsonpCallback: 'jsonp_callback',
 			contentType: 'application/json',
@@ -44,20 +44,21 @@ getData = function(pageNum){
 
 $(document).ready(function(){
 	var pageNum = 1;
-	getData(pageNum);
+	searchContent = localStorage.getItem("searchContent");
+	getContent(pageNum, searchContent);
 	
-	$('#lnkPrev').click(function(event){
+	$('#lnkSearchPrev').click(function(event){
 		if(pageNum == 0){
 			pageNum = 1;
 		}
-		getData(--pageNum);
+		getContent(--pageNum, searchContent);
 	});
 	
-	$('#lnkNxt').click(function(event){
+	$('#lnkSearchNxt').click(function(event){
 		if(pageNum == 0){
 			pageNum = 1;
 		}
-		getData(++pageNum);
+		getContent(++pageNum, searchContent);
 	});
 });
 }())

@@ -1,8 +1,8 @@
 <script type="text/javascript" src="/bubbaLyrics/scripts/signUpScript.js"></script>
 
-<div id="signup" class="container">
+<div id="signup" class="container" style="float:left;">
 	<h2><strong>Sign Up</strong></h2>
-	<form role="form" id="signUpForm" name="signUpForm">
+	<form role="form" action="#" id="signUpForm" name="signUpForm">
 	<fieldset>
 	
 		<div class="form-group">
@@ -45,3 +45,4 @@
 		
 	</form>
 </div> 
+<div id="signUpFeedback" style="float:left;"></div>

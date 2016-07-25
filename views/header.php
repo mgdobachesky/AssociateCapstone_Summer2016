@@ -9,6 +9,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bubbaLyrics/styles.css">
+	<script type="text/javascript" src="/bubbaLyrics/scripts/headerScript.js"></script>
+
 	  
 </head>
     <body>
@@ -17,7 +19,7 @@
 		
             <div class="page-header">     
                 <div class="header">
-                    <a href="/bubbaLyrics/index.php?action=home"><span class="glyphicon glyphicon-fire"></span></a>
+                    <a href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-fire"></span></a>
                     Bubba Lyrics
                     <p>Your go to source for finding the lyrics to the songs you love!</p>
                     <div class="social-icons">
@@ -50,9 +52,9 @@
     
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group" >
-                            <input type="text" class="form-control" placeholder="Search...">
+                            <input type="text" id="searchContent" class="form-control" placeholder="Search Artists..." />
                         </div>
-                        <a class="btn btn-large btn btn-primary"  href="/bubbaLyrics/index.php?action=searchResults">Go!</a>
+                        <a class="btn btn-large btn btn-primary" id="searchClick"  href="#">Go!</a>
                     </form>
                 </div>          
             </nav>

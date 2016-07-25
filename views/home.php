@@ -71,7 +71,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="imgAbt">
-				<img width="300" height="250" src="https://media.timeout.com/images/100286017/image.jpg" />
+				<img width="300" height="250" src="/bubbaLyrics/images/art1.jpg" />
 			</div>
 		</div>
 		<div class="col-md-8">
@@ -85,7 +85,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="imgAbt">
-				<img width="300" height="250" src="https://pixabay.com/static/uploads/photo/2014/12/03/05/53/string-555070_960_720.jpg" />
+				<img width="300" height="250" src="/bubbaLyrics/images/art2.jpg" />
 			</div>
 		</div>
 		<div class="col-md-8">
@@ -99,7 +99,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="imgAbt">
-				<img width="300" height="250" src="http://socialtwoonenine.com/wp-content/uploads/2015/08/LiveMusic.jpg" />
+				<img width="300" height="250" src="/bubbaLyrics/images/art3.jpg" />
 			</div>
 		</div>
 		<div class="col-md-8">
@@ -113,7 +113,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="imgAbt">
-				<img width="300" height="250" src="https://www.ethos3.com/wp-content/uploads/2016/01/music-for-presentation.jpg" />
+				<img width="300" height="250" src="/bubbaLyrics/images/art4.jpg" />
 			</div>
 		</div>
 		<div class="col-md-8">
