@@ -108,7 +108,6 @@
 		break;
 		
 		//when the sign-up form is submitted, run this function that adds the user to the database
-		//NOTE: there are problems with this function noted in the signUpScript
 		case "signUpDetails":
 		$addedUser = addUser($db, $fName, $lName, $userName, $email, $password);
 		break;
