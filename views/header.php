@@ -16,7 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     
-    <link rel="stylesheet" href="/bubbaLyrics/styles.css">
+    <link rel="stylesheet" href="/bubbaLyrics/styles/styles.css">
 </head>
     <body>
 	<script type="text/javascript" src="/bubbaLyrics/scripts/headerScript.js"></script>
