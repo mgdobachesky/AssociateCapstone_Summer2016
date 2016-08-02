@@ -38,6 +38,7 @@
 			document.getElementById('lyricTitle').innerText = data.message.body.track.artist_name;
 			document.getElementById('albumTitle').innerText = data.message.body.track.album_name;
 			document.getElementById('songTitle').innerText = data.message.body.track.track_name;
+			localStorage.setItem("spotifyId", data.message.body.track.track_spotify_id);
 			getLyric(data.message.body.track.track_id);	
 		});
 	}

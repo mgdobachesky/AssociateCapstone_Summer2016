@@ -38,15 +38,16 @@
 		document.getElementById('tblSearchResults').innerHTML = "";
 		for(var i = 0; i < data.message.body.artist_list.length; i++){
 			var htmlString = "<tr>";
-			htmlString += "<td><a href='javascript: linkSearchClick(" + data.message.body.artist_list[i].artist.artist_id + ")'>" + data.message.body.artist_list[i].artist.artist_name + "</a></td>";
+			htmlString += "<td><a href='javascript: linkSearchClick(" + data.message.body.artist_list[i].artist.artist_id + "," + "\"" + data.message.body.artist_list[i].artist.artist_mbid + "\"" + ")'>" + data.message.body.artist_list[i].artist.artist_name + "</a></td>";
 			htmlString += "</tr>";
 			document.getElementById('tblSearchResults').innerHTML += htmlString;
 		}
 	}
 	
 	//when a link has been clicked, store the id for that artist then redirect the user to the the artist page
-	linkSearchClick = function(artistId) {
+	linkSearchClick = function(artistId, artistMbid) {
 		localStorage.setItem("artistId", artistId);
+		localStorage.setItem("artistMbid", artistMbid);
 		window.location.assign("/bubbaLyrics/index.php?action=artist");
 	}
 

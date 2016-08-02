@@ -72,9 +72,9 @@
 			var htmlString = "<tr>";
 			//if the album only has one song, display the word "single" next to it
 			if(data.message.body.album_list[i].album.album_release_type == "Single"){
-				htmlString += "<td><a href='javascript: albumClick(" + data.message.body.album_list[i].album.album_id + ")'>" + data.message.body.album_list[i].album.album_name + " (Single)</a></td>";
+				htmlString += "<td><a href='javascript: albumClick(" + data.message.body.album_list[i].album.album_id + "," + "\"" + data.message.body.album_list[i].album.album_mbid + "\"" + ")'>" + data.message.body.album_list[i].album.album_name + " (Single)</a></td>";
 			} else {
-				htmlString += "<td><a href='javascript: albumClick(" + data.message.body.album_list[i].album.album_id + ")'>" + data.message.body.album_list[i].album.album_name + "</a></td>";
+				htmlString += "<td><a href='javascript: albumClick(" + data.message.body.album_list[i].album.album_id + "," + "\"" + data.message.body.album_list[i].album.album_mbid + "\"" + ")'>" + data.message.body.album_list[i].album.album_name + "</a></td>";
 			}
 			htmlString += "</tr>";
 			document.getElementById('tblAlbums').innerHTML += htmlString;
@@ -82,7 +82,9 @@
 	}
 	
 	//when an album link is clicked, run a function that gets and displays information for that album
-	albumClick = function(albumId) {
+	albumClick = function(albumId, albumMbid) {
+		localStorage.setItem("albumId", albumId);
+		localStorage.setItem("albumMbid", albumMbid);
 		getTracks(albumId);
 	}
 		
@@ -121,20 +123,16 @@
 		document.getElementById('tblSongs').innerHTML = "";
 		for(var i = 0; i < data.message.body.track_list.length; i++){
 			var htmlString = "<tr>";
-			htmlString += "<td><a href='javascript: songClick(" + data.message.body.track_list[i].track.track_id + ")'>" + data.message.body.track_list[i].track.track_name + "</a></td>";
+			htmlString += "<td><a href='javascript: songClick(" + data.message.body.track_list[i].track.track_id + "," + "\"" + data.message.body.track_list[i].track.track_mbid + "\"" +")'>" + data.message.body.track_list[i].track.track_name + "</a></td>";
 			htmlString += "</tr>";
 			document.getElementById('tblSongs').innerHTML += htmlString;
 		}
 	}
 
-	//when a song is clicked, pass that song's id to another function that will store it in local storage
-	songClick = function(songId) {
-		storeSongId(songId);
-	}
-	
 	//store the chosen song's id in local storage for use in the lyricsScript, then redirect the use to the lyrics page
-	storeSongId = function(songId) {
+	songClick = function(songId, songMbid) {
 		localStorage.setItem("songId", songId);
+		localStorage.setItem("songMbid", songMbid);
 		window.location.assign("/bubbaLyrics/index.php?action=lyrics");
 	}
 	

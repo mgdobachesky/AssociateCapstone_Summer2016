@@ -17,15 +17,16 @@
 		document.getElementById('tblArtists').innerHTML = "";
 		for(var i = 0; i < data.message.body.artist_list.length; i++){
 			var htmlString = "<tr>";
-			htmlString += "<td><a href='javascript: linkClick(" + data.message.body.artist_list[i].artist.artist_id + ")'>" + data.message.body.artist_list[i].artist.artist_name + "</a></td>";
+			htmlString += "<td><a href='javascript: linkClick(" + data.message.body.artist_list[i].artist.artist_id + "," + "\"" + data.message.body.artist_list[i].artist.artist_mbid + "\"" + ")'>" + data.message.body.artist_list[i].artist.artist_name + "</a></td>";
 			htmlString += "</tr>";
 			document.getElementById('tblArtists').innerHTML += htmlString;
 		}
 	}
 
 	//when an artist link has been clicked, save that artist id in local storage and then redirect to the artist page
-	linkClick = function(artistId) {
+	linkClick = function(artistId, artistMbid) {
 		localStorage.setItem("artistId", artistId);
+		localStorage.setItem("artistMbid", artistMbid);
 		window.location.assign("/bubbaLyrics/index.php?action=artist");
 	}
 
