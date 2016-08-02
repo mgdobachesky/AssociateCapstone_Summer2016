@@ -5,18 +5,20 @@
 	<form role="form" id="loginForm" action="#" name="loginForm">
 	
 		<div class="form-group">
-		  <label for="username">Username:</label>
-		  <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username...">
+		  <label for="username">Email:</label>
+		  <input type="text" class="form-control" id="email" name="email" placeholder="Enter email...">
 		</div>
 
 		<div class="form-group">
 		  <label for="loginPwd">Password:</label>
-		  <input type="password" class="form-control" id="loginPwd" name="loginPwd" placeholder="Enter password...">
+		  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password...">
 		</div>
 		
 		<div class="checkbox">
 		  <label><input type="checkbox"> Remember me</label>
 		</div>
+		
+		<input type="hidden" id="hidden" name="hidden" value="logIn">
 		
 		<input type="submit" name="loginSubmit" id="loginSubmit" value="Login" class="btn btn-primary" />
 	</form>

@@ -50,7 +50,7 @@
                     
 					<ul class="nav navbar-nav navbar-right">
 					
-						<?php if($_SESSION['userid'] == 1) { ?>
+						<?php if($_SESSION['userid'] != NULL && !empty($_SESSION['userid'])) { ?>
 							<li><a href="/bubbaLyrics/index.php?action=profile" style="color:white"><span class="glyphicon glyphicon-user" style="color:white;"></span> Profile</a></li>
 							<li><a href="/bubbaLyrics/index.php?action=logout" style="color:white"><span class="glyphicon glyphicon-user" style="color:white;"></span> Logout</a></li>
 						<?php } ?>

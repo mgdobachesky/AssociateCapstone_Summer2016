@@ -20,10 +20,6 @@
 				var valEmail = document.forms["signUpForm"]["email"].value;
 				var valReEmail = document.forms["signUpForm"]["reEmail"].value;
 				
-				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-				//the nested if conditional statements could probably be compressed to one
-				//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-				
 				//send data to be placed in database if it passes the required conditions
 				if(valPassword == valRePassword && valEmail == valReEmail){
 					if(valEmail != "" && valPassword != ""){
@@ -32,25 +28,17 @@
 							method: "POST",
 							data: signUp
 						})
-						
-						//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-						//if the username or email the username selected already exitst then the user account will not be created and the user will not log in
-						//this is because the email or username column in the database is unique
-						//therefore, on index.php, when the script attempts to sign in the user he will not be signed in and "1" will be returned for the value of varStuff
-						//this causes some problems, for instance a blank field is added to the database if a user attempts to sign up with and existing email or username
-						//this method should be changed to work in a better way
-						//maybe run a query looking for the username or email before it is added, then only add it if no results are found, else the display error message
-						//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-						
 						//send data to controller to automatically sign in the user
 						.done(function(data){
-							$.post("/bubbaLyrics/index.php?action=signUpLog", signUp)
-							.done(function(varStuff){
-								if(varStuff == "0"){
-									window.location.assign("/bubbaLyrics/index.php");
-								}
-								else {
-									document.getElementById('signUpFeedback').innerHTML += "Error: That email is already in use <br>";
+							$.post("/bubbaLyrics/index.php?action=loggingIn", signUp)
+							.done(function(data){
+								if(data == ""){
+								//if email does not exist, sign up and redirect to home page
+								   window.location.assign("/bubbaLyrics/index.php");
+									
+								} else {
+									//if email does exist, display appropriate feedback
+									document.getElementById('signUpFeedback').innerHTML = data;   
 								}
 							});
 						});

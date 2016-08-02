@@ -16,15 +16,9 @@
 		</div>
 
 		<div class="form-group">
-		  <label for="username">Username:</label>
-		  <input type="text" class="form-control" id="username" name="username" placeholder="Enter username...">
-		</div>
-
-		<div class="form-group">
 		  <label for="email">Email:</label>
 		  <input type="email" class="form-control" id="email" name="email" placeholder="Enter email...">
 		</div>
-
 		<div class="form-group">
 		  <label for="email">Confirm Email:</label>
 		  <input type="email" class="form-control" id="reEmail" name="reEmail" placeholder="Enter email again...">
@@ -38,6 +32,21 @@
 		  <label for="pwd">Confirm Password:</label>
 		  <input type="password" class="form-control" id="rePwd" name="rePwd" placeholder="Enter password again...">
 		</div>
+		
+			<div class="form-group">
+			<label for="first">Phone Number:</label>
+			<input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone number...">
+		</div>
+		
+		<div class="radio">
+			<label><input type="radio" name="gender" id="male" value="male">Male</label>
+		</div>
+		
+		<div class="radio">
+			<label><input type="radio" name="gender" id="female" value="female">Female</label>
+		</div>
+		
+	   <input type="hidden" id="hidden" name="hidden" value="signUp">
 	   
 		<input type="submit" id="btnSignUp" name="btnSignUp" class="btn btn-primary" value="Sign Up!" />
 		
