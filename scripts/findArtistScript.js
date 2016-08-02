@@ -39,7 +39,7 @@
 				s_artist_rating:"DESC",
 				country:"US",
 				page:pageNum,
-				page_size:"12",
+				page_size:12,
 				format:"jsonp",
 				callback:"jsonp_callback"
 			},

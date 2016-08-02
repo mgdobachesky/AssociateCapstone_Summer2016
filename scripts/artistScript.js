@@ -48,10 +48,10 @@
 			data: {
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
 				artist_id:data.message.body.artist.artist_id,
-				g_album_name:"true",
+				g_album_name:1,
 				s_release_date:"DESC",
 				format:"jsonp",
-				page_size:"10",
+				page_size:10,
 				page:pageNum,
 				callback:"jsonp_callback"
 			},
@@ -95,10 +95,10 @@
 			data: {
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
 				album_id:albumId,
-				f_has_lyrics:"true",
+				f_has_lyrics:1,
 				format:"jsonp",
-				page_size:"100",
-				page:"1",
+				page_size:100,
+				page:1,
 				callback:"jsonp_callback"
 			},
 			url: "http://api.musixmatch.com/ws/1.1/album.tracks.get?",

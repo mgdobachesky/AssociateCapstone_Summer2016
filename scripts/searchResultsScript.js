@@ -19,7 +19,7 @@
 				q_artist:searchContent,
 				s_artist_rating:"DESC",
 				page:pageNum,
-				page_size:"12",
+				page_size:12,
 				format:"jsonp",
 				callback:"jsonp_callback"
 			},
