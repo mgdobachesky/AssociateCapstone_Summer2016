@@ -14,6 +14,13 @@
 
 <div class="row">
 	<div class="container-fluid">
+		<div id="artistPic" class="col-md-3"></div> 
+		<div id="artistBio" class="col-md-9"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container-fluid">
 		
 		<div class="col-md-6" style="margin-top:15px;">
             <p><em><strong>Click an album to view songs from specified album...</strong></em></p>

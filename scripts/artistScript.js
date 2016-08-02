@@ -19,6 +19,30 @@
 		document.getElementById('breadCrumbs').innerHTML = htmlString;	
 	}
 		
+	//get information on the artist such as picture and bio, then post on the artist page
+	artistInfo = function(artistMbid) {
+		$.ajax({
+			type: "GET",
+			url: "http://ws.audioscrobbler.com/2.0/",
+			data: {
+				method: "artist.getinfo",
+				mbid: artistMbid,
+				api_key: "eb771d0706bad3455c555dc8b00f4235",
+				format: "json"
+			},
+			dataType: "jsonp"
+		})
+		.done(function(data){
+			var img = document.createElement("img");
+			img.src = data.artist.image[3]['#text'];
+			var src = document.getElementById("artistPic");
+			src.appendChild(img);
+			
+			var bioString = "<p>" + data.artist.bio.content +"</p>";
+			document.getElementById('artistBio').innerHTML = bioString;	
+		});
+	}
+		
 	//get information on an artist and pass the data to a function that gets the artist's albums
 	getArtist = function(artistId, pageNum){
 		$.ajax({
@@ -140,6 +164,10 @@
 		//set the page number to one and get the artist id
 		var pageNum = 1;
 		artistId = localStorage.getItem("artistId");
+		artistMbid = localStorage.getItem("artistMbid");
+		
+		//function that gets information on the artist
+		artistInfo(artistMbid);
 		
 		//use the artist id to get and display information about the selected artist
 		//pass in the page number to be used later to determine what page of albums to display
