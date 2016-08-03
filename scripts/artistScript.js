@@ -20,7 +20,7 @@
 	}
 		
 	//get information on the artist such as picture and bio, then post on the artist page
-	artistInfo = function(artistMbid) {
+	artistInfo = function(artistMbid, bioLength) {
 		$.ajax({
 			type: "GET",
 			url: "http://ws.audioscrobbler.com/2.0/",
@@ -33,14 +33,43 @@
 			dataType: "jsonp"
 		})
 		.done(function(data){
+			//display the artist's picture
+			document.getElementById("artistPic").innerHTML = "";
 			var img = document.createElement("img");
 			img.src = data.artist.image[3]['#text'];
 			var src = document.getElementById("artistPic");
 			src.appendChild(img);
 			
-			var bioString = "<p>" + data.artist.bio.content +"</p>";
-			document.getElementById('artistBio').innerHTML = bioString;	
+			//if the user or page requests a summary of the artist bio, display that
+			if(bioLength == "less") {
+				var bioString = "<p>" + data.artist.bio.summary +"</p>";
+				var formattedBio = bioString.replace(/(\r\n|\n|\r)/gm, "<br />");
+				var bioLinkIndex = formattedBio.indexOf("<a href");
+				var slicedBio = formattedBio.slice(0, bioLinkIndex);
+				var addedOpt = slicedBio.concat("<br /><a href='javascript: moreBio()'>More...</a>");
+				document.getElementById('artistBio').innerHTML = addedOpt;
+			}
+			
+			//if the user or page requests more of the artist bio, display the entire thing
+			if(bioLength == "more") {
+				var bioString = "<p>" + data.artist.bio.content +"</p>";
+				var formattedBio = bioString.replace(/(\r\n|\n|\r)/gm, "<br />");
+				var bioLinkIndex = formattedBio.indexOf("<a href");
+				var slicedBio = formattedBio.slice(0, bioLinkIndex);
+				var addedOpt = slicedBio.concat("<br /><a href='javascript: lessBio()'>Less...</a>");
+				document.getElementById('artistBio').innerHTML = addedOpt;
+			}
 		});
+	}
+	
+	//function that calls for more of the artists bio
+	moreBio = function() {
+		artistInfo(artistMbid, "more");
+	}
+	
+	//function that calls for less of the artists bio
+	lessBio = function() {
+		artistInfo(artistMbid, "less");
 	}
 		
 	//get information on an artist and pass the data to a function that gets the artist's albums
@@ -166,8 +195,8 @@
 		artistId = localStorage.getItem("artistId");
 		artistMbid = localStorage.getItem("artistMbid");
 		
-		//function that gets information on the artist
-		artistInfo(artistMbid);
+		//function that gets information on the artist, starting with a summary of the biography
+		artistInfo(artistMbid, "less");
 		
 		//use the artist id to get and display information about the selected artist
 		//pass in the page number to be used later to determine what page of albums to display
