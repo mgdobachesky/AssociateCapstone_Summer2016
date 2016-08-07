@@ -1,5 +1,4 @@
 <script type="text/javascript" src="/bubbaLyrics/scripts/homeScript.js"></script>
-<p id="feedback" style="float: left;"><?php echo $value; ?></p>
 
 <div class="container">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
