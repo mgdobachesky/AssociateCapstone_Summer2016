@@ -27,11 +27,11 @@
 <?php if ($_SESSION['userId'] != NULL || !empty($_SESSION['userId'])) { ?>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
+	<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<h1>Hello <?php echo($_SESSION['firstName']); ?>!</h1>
 			<br />
-			<br />
-			<h3 id="noteTitle">Admin Notes</h3>
+			<h4 id="noteTitle">Admin Notes</h4>
 			<?php if($action != 'editNote') { ?><a href="#" id="addNote"><span class="glyphicon glyphicon-plus"></span> Add New Note</a> <?php } ?>
 			<form role="form" id="<?php if($action == 'editNote') {echo "noteUpdate";} else {echo "noteForm";} ?>" name="noteForm" action="#">
 				<fieldset>

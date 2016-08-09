@@ -15,7 +15,7 @@
 			$_SESSION['adminLevel'] = $loginRow['adminLevel'];
 			header('Location: /bubbaLyrics/cms/index.php');
 		else:
-			$error = "Error loggin in";
+			$error = "Error loggin in.";
 			include $_SERVER['DOCUMENT_ROOT'] . '/bubbaLyrics/cms/views/error.php';
 			exit();
 		endif;
@@ -26,6 +26,14 @@
 		$adminName = $_SESSION['firstName'] . " " . $_SESSION['lastName'];
 		$lastInsert = storeNote($db, $noteContents, $adminName);
 		$json = '{"name":"' . $adminName . '", "lastInsert":' . $lastInsert . '}';
+		echo $json;
+		exit();
+	endif;
+	
+	if ($action == "getPicture"):
+		$getSlide = $_POST['getSlide'];
+		$slideInfo = slideInfo($db, $getSlide);
+		$json = '{"slideLink":"' . $slideInfo['carouselPictureLink'] . '", "slideDescription":"' . $slideInfo['pictureDescription'] . '"}';
 		echo $json;
 		exit();
 	endif;
@@ -48,6 +56,22 @@
 		
 		case "editCarousel":
 			include("/views/editCarousel.php");
+		break;
+		
+		case "uploadCarouselFile":
+			if($_POST['hiddenSlide'] != "") {
+				$fileType = $_FILES['carouselFileUpload']['type'];
+				$fileName = $_FILES['carouselFileUpload']['name'];
+				$storeName = storeImage($fileType, $fileName);
+				$slideNumber = $_POST['hiddenSlide'];
+				$fileDescription = $_POST['fileDescription'];
+				deleteCarouselPicture($db, $slideNumber);
+				uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription);
+			} else {
+				$error = "Please choose a slide number to edit.";
+				include $_SERVER['DOCUMENT_ROOT'] . '/bubbaLyrics/cms/views/error.php';
+			}
+			include("/views/cmsHome.php");
 		break;
 		
 		case "editArticles":

@@ -5,3 +5,9 @@
 #addNote {
 	display: inline-block;
 }
+#ddlSlide {
+	float: right;
+}
+#uplCarousel {
+	display: inline-block;
+}

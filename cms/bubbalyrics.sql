@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2016 at 03:39 AM
+-- Generation Time: Aug 09, 2016 at 05:31 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -44,8 +44,8 @@ CREATE TABLE `adminnotes` (
 DROP TABLE IF EXISTS `articles`;
 CREATE TABLE `articles` (
   `articleId` int(11) NOT NULL,
-  `articleNumber` int(11) NOT NULL,
-  `articlePicture` blob NOT NULL,
+  `articleNumber` varchar(11) NOT NULL,
+  `articlePictureLink` varchar(40) NOT NULL,
   `articleTitle` varchar(40) NOT NULL,
   `articleContent` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -59,25 +59,34 @@ CREATE TABLE `articles` (
 DROP TABLE IF EXISTS `carousel`;
 CREATE TABLE `carousel` (
   `carouselId` int(11) NOT NULL,
-  `slideNumber` int(11) NOT NULL,
-  `carouselPicture` blob NOT NULL
+  `slideNumber` varchar(11) NOT NULL,
+  `carouselPictureLink` varchar(40) NOT NULL,
+  `pictureDescription` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personalinformation`
+-- Table structure for table `personinformation`
 --
 
-DROP TABLE IF EXISTS `personalinformation`;
-CREATE TABLE `personalinformation` (
-  `personalInformationId` int(11) NOT NULL,
+DROP TABLE IF EXISTS `personinformation`;
+CREATE TABLE `personinformation` (
+  `personInformationId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `firstName` varchar(40) NOT NULL,
   `lastName` varchar(40) NOT NULL,
   `phoneNumber` varchar(40) NOT NULL,
   `gender` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `personinformation`
+--
+
+INSERT INTO `personinformation` (`personInformationId`, `userId`, `firstName`, `lastName`, `phoneNumber`, `gender`) VALUES
+(1, 1, 'Michael', 'Dobachesky', '(555)-555-5555', 'male'),
+(2, 2, 'Tom', 'Cass', '(555)-555-5555', 'male');
 
 -- --------------------------------------------------------
 
@@ -92,6 +101,14 @@ CREATE TABLE `userlogin` (
   `email` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userlogin`
+--
+
+INSERT INTO `userlogin` (`userId`, `adminLevel`, `email`, `password`) VALUES
+(1, 1, 'mike@email.com', 'password'),
+(2, 2, 'tom@email.com', 'password');
 
 --
 -- Indexes for dumped tables
@@ -116,11 +133,11 @@ ALTER TABLE `carousel`
   ADD PRIMARY KEY (`carouselId`);
 
 --
--- Indexes for table `personalinformation`
+-- Indexes for table `personinformation`
 --
-ALTER TABLE `personalinformation`
-  ADD PRIMARY KEY (`personalInformationId`),
-  ADD UNIQUE KEY `userId` (`userId`);
+ALTER TABLE `personinformation`
+  ADD PRIMARY KEY (`personInformationId`),
+  ADD KEY `userId` (`userId`);
 
 --
 -- Indexes for table `userlogin`
@@ -149,15 +166,25 @@ ALTER TABLE `articles`
 ALTER TABLE `carousel`
   MODIFY `carouselId` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `personalinformation`
+-- AUTO_INCREMENT for table `personinformation`
 --
-ALTER TABLE `personalinformation`
-  MODIFY `personalInformationId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `personinformation`
+  MODIFY `personInformationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `userlogin`
 --
 ALTER TABLE `userlogin`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `personinformation`
+--
+ALTER TABLE `personinformation`
+  ADD CONSTRAINT `personinformation_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `userlogin` (`userId`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
