@@ -46,8 +46,9 @@ CREATE TABLE `articles` (
   `articleId` int(11) NOT NULL,
   `articleNumber` varchar(11) NOT NULL,
   `articlePictureLink` varchar(40) NOT NULL,
-  `articleTitle` varchar(40) NOT NULL,
-  `articleContent` text NOT NULL
+  `articleTitle` varchar(80) NOT NULL,
+  `articleContent` text NOT NULL,
+  `pictureDescription` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -61,7 +62,7 @@ CREATE TABLE `carousel` (
   `carouselId` int(11) NOT NULL,
   `slideNumber` varchar(11) NOT NULL,
   `carouselPictureLink` varchar(40) NOT NULL,
-  `pictureDescription` varchar(40) NOT NULL
+  `pictureDescription` varchar(40) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

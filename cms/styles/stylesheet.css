@@ -5,9 +5,9 @@
 #addNote {
 	display: inline-block;
 }
-#ddlSlide {
+#ddlSlide, #ddlArticle {
 	float: right;
 }
-#uplCarousel {
+#uplCarousel, #uplArticle {
 	display: inline-block;
 }

@@ -12,7 +12,14 @@
 				var obj = JSON.parse(data);
 				$("#currentPicture").html("<label>Current Picture:</label>");
 				$("#selectedPicture").html("<img src='/bubbaLyrics/cms/images/" + obj.slideLink + "' class='img-responsive' alt='" + obj.slideDescription + "' />");
+				$("#fileDescription").val(obj.slideDescription);
+				$("#editCarouselSpace").html("<div class='col-md-2'></div>");
 			});
+		});
+		
+		$("#cancelCarousel").on('click', function(event){
+			window.location.assign("/bubbaLyrics/cms/index.php");
+			event.preventDefault();
 		});
 	});
 }())

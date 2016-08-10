@@ -81,7 +81,7 @@ function logout(){
 }
 
 //function that stores an image to the server's localstorage
-function storeImage($fileType, $fileName){
+function storeImage($fileType, $fileName, $uploadType){
 	if (preg_match('/^image\/p?jpeg$/i', $fileType) ||
 	preg_match('/^image\/gif$/i', $fileType) ||
 	preg_match('/^image\/(x-)?png$/i', $fileType)) {
@@ -89,8 +89,8 @@ function storeImage($fileType, $fileName){
 		$uniqueName = time() . $fileName;
 		$filename = '/xampp/htdocs/bubbaLyrics/cms/images/' . $uniqueName;
 		// Copy the file (if it is deemed safe)
-		if (!is_uploaded_file($_FILES['carouselFileUpload']['tmp_name']) || 
-		!copy($_FILES['carouselFileUpload']['tmp_name'], $filename)) {
+		if (!is_uploaded_file($_FILES[$uploadType]['tmp_name']) || 
+		!copy($_FILES[$uploadType]['tmp_name'], $filename)) {
 			$error = "Could not save file as $filename.";
 			include $_SERVER['DOCUMENT_ROOT'] . '/bubbaLyrics/cms/views/error.php';
 		}
@@ -133,6 +133,42 @@ function slideInfo($db, $getSlide) {
 		return $slide;
 	} catch (PDOException $e) {
 		exit("Error getting slide information");
+	}
+}
+
+//function to clear out a spot for a new article
+function deleteArticle ($db, $articleNumber) {
+	$sql = "DELETE FROM articles WHERE articleNumber = :articleNumber;";
+	$ps = $db->prepare($sql);
+	$ps->bindValue(':articleNumber', $articleNumber);
+	$ps->execute();
+}
+
+//function to upload an article. after deleting the old one, upload the new article in its place
+function uploadArticle($db, $storeName, $articleNumber, $fileDescription, $articleTitle, $articleContent) {
+	$sql = "INSERT INTO articles(articleId, articleNumber, articlePictureLink, articleTitle, articleContent, pictureDescription) VALUES (NULL, :articleNumber, :storeName, :articleTitle, :articleContent, :pictureDescription);";
+	try {
+		$ps = $db->prepare($sql);
+		$ps->bindValue(':articleNumber', $articleNumber);
+		$ps->bindValue(':storeName', $storeName);
+		$ps->bindValue(':articleTitle', $articleTitle);
+		$ps->bindValue(':articleContent', $articleContent);
+		$ps->bindValue(':pictureDescription', $fileDescription);
+		$ps->execute();
+	} catch(PDOException $e) {
+		return("There was a problem adding new article picture");
+	}
+}
+
+//function that gets information on a certain article
+function articleInfo($db, $getArticle) {
+	try {
+		$sql = "SELECT articleId, articleNumber, articlePictureLink, articleTitle, articleContent, pictureDescription FROM articles WHERE articleNumber='$getArticle';";
+		$results = $db->query($sql);
+		$slide = $results->fetch();
+		return $slide;
+	} catch (PDOException $e) {
+		exit("Error getting article information");
 	}
 }
 ?>
