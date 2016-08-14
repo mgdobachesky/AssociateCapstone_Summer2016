@@ -22,7 +22,7 @@ if ($_SESSION['userId'] == NULL || empty($_SESSION['userId'])) {
 						<span class='label label-info' id="upload-file-info"></span>
 					</div>
 					<div class="dropdown" id="ddlArticle">
-						<button class="btn btn-primary dropdown-toggle" id="chooseArticle" name="chooseArticle" type="button" data-toggle="dropdown">Slide Number <span class="caret"></span></button>
+						<button class="btn btn-primary dropdown-toggle" id="chooseArticle" name="chooseArticle" type="button" data-toggle="dropdown">Article Number <span class="caret"></span></button>
 						<ul class="dropdown-menu">
 							<li><a href="#">1</a></li>
 							<li><a href="#">2</a></li>

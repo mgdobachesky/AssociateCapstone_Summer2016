@@ -93,6 +93,7 @@ function storeImage($fileType, $fileName, $uploadType){
 		!copy($_FILES[$uploadType]['tmp_name'], $filename)) {
 			$error = "Could not save file as $filename.";
 			include $_SERVER['DOCUMENT_ROOT'] . '/bubbaLyrics/cms/views/error.php';
+			exit();
 		}
 		return $uniqueName;
 	} else {
