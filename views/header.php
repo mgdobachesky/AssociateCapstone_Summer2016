@@ -28,7 +28,7 @@
                     <a href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-fire"></span></a>
                     Bubba Lyrics
                     <p>Your go to source for finding the lyrics to the songs you love!</p>
-                    <div class="social-icons">
+                    <div class="social-icons" id="social">
                     <a href="https://facebook.com"><img src="/bubbaLyrics/images/fb.png" width="35" height="35" alt="Facebook" /></a>
                     <a href="https://twitter.com"><img src="/bubbaLyrics/images/tw.png" width="35" height="35" alt="Twitter" /></a>
                     <a href="https://youtube.com"><img src="/bubbaLyrics/images/yt.png" width="35" height="35" alt="Youtube" /></a>
@@ -41,18 +41,18 @@
             <nav class="navbar navbar-default" >
                 <div id="nav1" class="container-fluid">
                     <div class="navbar-header">
-                        <a class="btn btn-large btn btn-primary" style="float:left; margin-top:10px; width:150px;" href="/bubbaLyrics/index.php?action=findArtist">Top Artists</a>
+                        <a class="btn btn-large btn btn-primary" id="topArtistButton" href="/bubbaLyrics/index.php?action=findArtist">Top Artists</a>
                         <ul class="nav navbar-nav">
-                            <ol id="breadCrumbs" class="breadcrumb" style="float:left; margin-top: 10px; margin-left:50px;">
+                            <ol id="breadCrumbs" class="breadcrumb" >
 							</ol>
                         </ul>
                     </div>
                     
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/bubbaLyrics/index.php?action=signUp" style="color:white"><span class="glyphicon glyphicon-check" style="color:white;"></span> Sign Up</a></li>
-						<li><a href="/bubbaLyrics/index.php?action=login" style="color:white"><span class="glyphicon glyphicon-log-in" style="color:white;"></span> Login</a></li>
-						<li><a href="/bubbaLyrics/index.php?action=profile" style="color:white"><span class="glyphicon glyphicon-user" style="color:white;"></span> Profile</a></li>
-						<li><a href="/bubbaLyrics/index.php" style="color:white"><span class="glyphicon glyphicon-user" style="color:white;"></span> Logout</a></li>
+						<li><a href="/bubbaLyrics/index.php?action=signUp"><span class="glyphicon glyphicon-check"></span> Sign Up</a></li>
+						<li><a href="/bubbaLyrics/index.php?action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li><a href="/bubbaLyrics/index.php?action=profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+						<li><a href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
 					</ul>
     
                     <form class="navbar-form navbar-right" role="search">

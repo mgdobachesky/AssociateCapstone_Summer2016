@@ -1,3 +1,5 @@
+dfgdfg
+
 * {
 	header: 0;
 	margin: 0;
@@ -14,12 +16,25 @@ body{
     margin-bottom:100px;
 }
 
+#breadCrumbs{
+	float:left; margin-top: 10px; margin-left:50px;
+}
+#topArtistButton{
+	float:left; margin-top:10px; width:150px;
+}
+
 #songName{
     background-color:#336699;
     margin-top:-20px;
     width:100%;
 }
 
+.accordpic{
+	width:800px;height:500px
+}
+.imgAbt{
+	margin-top:25px;
+}
 
 @font-face{
     font-family: papyrus; src: url('PAPYRUS.TTF');
@@ -29,6 +44,8 @@ body{
     margin-top:-75px;
     text-align:right;
 	border:0;
+
+
 }
 
 .header{
@@ -106,7 +123,10 @@ canvas{
 }
 
 
-
+#lyricStyle{
+	 text-align:center; 
+	 margin-bottom:10em;
+}
 
 
 footer{

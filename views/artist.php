@@ -1,6 +1,6 @@
 <!--My Copy test-->
 
-
+<!--More Test-->
 <script type="text/javascript" src="/bubbaLyrics/scripts/artistScript.js"></script>
 <script type="text/javascript" src="/bubbaLyrics/scripts/canvas.js"></script>
 

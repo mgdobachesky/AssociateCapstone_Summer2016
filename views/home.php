@@ -14,8 +14,9 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="/bubbaLyrics/images/sliderpic1.jpg" alt="Item1" style="width:800px;height:500px">
-			
+			<div class="accordpic">
+				<img src="/bubbaLyrics/images/sliderpic1.jpg" alt="Item1">
+			</div>
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Duo reges constructio interrete. Sed quid minus probandum quam esse aliquem beatum nec satis beatum</p>
@@ -23,7 +24,9 @@
 			</div>
 
 			<div class="item">
-				<img src="/bubbaLyrics/images/sliderpic2.jpg" alt="Item2" style="width:800px;height:500px">
+			<div class="accordpic">
+				<img src="/bubbaLyrics/images/sliderpic2.jpg" alt="Item2">
+			</div>
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Quamvis enim depravatae non sint, pravae tamen esse possun sin tantum modo</p>
@@ -31,7 +34,9 @@
 			</div>
 
 			<div class="item">
-				<img src="/bubbaLyrics/images/sliderpic3.jpg" alt="Item3" style="width:800px;height:500px">
+			<div class="accordpic">
+				<img src="/bubbaLyrics/images/sliderpic3.jpg" alt="Item3">
+			</div>
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Hic nihil fuit, quod quaereremus. Quae in controversiam veniunt, de iis, si placet, disseramus.</p>
@@ -39,7 +44,9 @@
 			</div>
 
 			<div class="item">
-				<img src="/bubbaLyrics/images/sliderpic4.jpg" alt="Item4" style="width:800px;height:500px">
+			<div class="accordpic">
+				<img src="/bubbaLyrics/images/sliderpic4.jpg" alt="Item4">
+			</div>
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.</p>
@@ -47,7 +54,9 @@
 			</div>
 			
 			<div class="item">
-				<img src="/bubbaLyrics/images/sliderpic5.jpg" alt="Item5" style="width:800px;height:500px">
+			<div class="accordpic">
+				<img src="/bubbaLyrics/images/sliderpic5.jpg" alt="Item5">
+			</div>
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
@@ -90,7 +99,7 @@
       </div>
           </div>
       <div class="col-md-4">
-		<div class="imgAbt" style="margin-top:25px;">
+		<div class="imgAbt">
 			<img width="300" height="250" src="/bubbaLyrics/images/art1.jpg" />
 		</div>
       </div>
@@ -112,7 +121,7 @@
       </div>
           </div>
       <div class="col-md-4">
-		<div class="imgAbt" style="margin-top:25px;">
+		<div class="imgAbt">
 			<img width="300" height="250" src="/bubbaLyrics/images/art2.jpg" />
 		</div>
       </div>
@@ -134,7 +143,7 @@
       </div>
           </div>
       <div class="col-md-4">
-		<div class="imgAbt" style="margin-top:25px;">
+		<div class="imgAbt">
 			<img width="300" height="250" src="/bubbaLyrics/images/art3.jpg" />
 		</div>
       </div>
@@ -162,7 +171,7 @@
       </div>
           </div>
       <div class="col-md-4">
-		<div class="imgAbt" style="margin-top:25px;">
+		<div class="imgAbt">
 			<img width="300" height="250" src="/bubbaLyrics/images/art4.jpg" />
 		</div>
       </div>
@@ -188,13 +197,12 @@
       </div>
           </div>
       <div class="col-md-4">
-		<div class="imgAbt" style="margin-top:25px;">
+		<div class="imgAbt">
 			<img width="300" height="250" src="/bubbaLyrics/images/art5.jpg" />
 		</div>
       </div>
   </div>
     
     <br><br><br
+</div>  
 </div>
-    
-</div>   
