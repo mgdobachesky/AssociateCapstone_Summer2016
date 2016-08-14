@@ -14,9 +14,9 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-			<div class="accordpic">
-				<img src="/bubbaLyrics/images/sliderpic1.jpg" alt="Item1">
-			</div>
+			
+				<img src="/bubbaLyrics/images/sliderpic1.jpg" alt="Item1" width="800" height="500"/>
+			
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Duo reges constructio interrete. Sed quid minus probandum quam esse aliquem beatum nec satis beatum</p>
@@ -24,9 +24,9 @@
 			</div>
 
 			<div class="item">
-			<div class="accordpic">
-				<img src="/bubbaLyrics/images/sliderpic2.jpg" alt="Item2">
-			</div>
+			
+				<img src="/bubbaLyrics/images/sliderpic2.jpg" alt="Item2" width="800" height="500"/>
+			
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Quamvis enim depravatae non sint, pravae tamen esse possun sin tantum modo</p>
@@ -34,9 +34,9 @@
 			</div>
 
 			<div class="item">
-			<div class="accordpic">
-				<img src="/bubbaLyrics/images/sliderpic3.jpg" alt="Item3">
-			</div>
+			
+				<img src="/bubbaLyrics/images/sliderpic3.jpg" alt="Item3"width="800" height="500"/>
+			
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Hic nihil fuit, quod quaereremus. Quae in controversiam veniunt, de iis, si placet, disseramus.</p>
@@ -44,9 +44,9 @@
 			</div>
 
 			<div class="item">
-			<div class="accordpic">
-				<img src="/bubbaLyrics/images/sliderpic4.jpg" alt="Item4">
-			</div>
+			
+				<img src="/bubbaLyrics/images/sliderpic4.jpg" alt="Item4" width="800" height="500"/>
+			
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.</p>
@@ -54,9 +54,9 @@
 			</div>
 			
 			<div class="item">
-			<div class="accordpic">
-				<img src="/bubbaLyrics/images/sliderpic5.jpg" alt="Item5">
-			</div>
+		
+				<img src="/bubbaLyrics/images/sliderpic5.jpg" alt="Item5" width="800" height="500"/>
+		
 				<div class="carousel-caption">
 					<h3>Featured Stuff</h3>
 					<p>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
