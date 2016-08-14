@@ -28,6 +28,7 @@ body{
 .social-icons{
     margin-top:-75px;
     text-align:right;
+	border:0;
 }
 
 .header{
@@ -39,7 +40,7 @@ body{
 .page-header{
     
     height:10em;
-    background-color:lightgrey;
+   background-color:#262626;
     color:white;
     margin-top:0em;
     padding-top:2.5em;
@@ -59,6 +60,10 @@ p{
 #nav1.container-fluid{
     padding-top:10px;
   
+}
+
+.navbar navbar-default{
+	background-color:#262626;
 }
 
 .nav navbar-nav navbar-right li{

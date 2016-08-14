@@ -23,12 +23,12 @@
 	
         <div class="container-fluid" id="mainContainer">
 		
-            <div class="page-header" style="background-color:#262626;">     
+            <div class="page-header">     
                 <div class="header">
                     <a href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-fire"></span></a>
                     Bubba Lyrics
                     <p>Your go to source for finding the lyrics to the songs you love!</p>
-                    <div class="social-icons" style="border:0;">
+                    <div class="social-icons">
                     <a href="https://facebook.com"><img src="/bubbaLyrics/images/fb.png" width="35" height="35" alt="Facebook" /></a>
                     <a href="https://twitter.com"><img src="/bubbaLyrics/images/tw.png" width="35" height="35" alt="Twitter" /></a>
                     <a href="https://youtube.com"><img src="/bubbaLyrics/images/yt.png" width="35" height="35" alt="Youtube" /></a>
@@ -38,7 +38,7 @@
                 </div>
             </div>
 			
-            <nav class="navbar navbar-default" style="background-color:#262626;">
+            <nav class="navbar navbar-default" >
                 <div id="nav1" class="container-fluid">
                     <div class="navbar-header">
                         <a class="btn btn-large btn btn-primary" style="float:left; margin-top:10px; width:150px;" href="/bubbaLyrics/index.php?action=findArtist">Top Artists</a>
