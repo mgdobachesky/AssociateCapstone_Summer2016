@@ -79,7 +79,7 @@
 </div>
 
 <div class="newsHead">
-    <h3><strong>What's New?</strong></h3>
+    <h3>What's New?</h3>
 </div>
 
 <div id="accordion">
