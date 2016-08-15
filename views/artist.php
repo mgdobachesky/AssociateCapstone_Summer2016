@@ -1,14 +1,15 @@
 <script type="text/javascript" src="/bubbaLyrics/scripts/artistScript.js"></script>
 
-
 <div class="container-fluid">
 	<div class="row">
+		<div class="col-md-1"></div>
 		<div class="col-md-4">
 			<h1 id="artistName" class="center"></h1>
 		</div>
 	</div>
 
 	<div class="row">
+		<div class="col-md-1"></div>
 		<div id="artistPic" class="col-md-4 center"></div> 
 		<div id="artistBio" class="col-md-6"></div>
 	</div>
