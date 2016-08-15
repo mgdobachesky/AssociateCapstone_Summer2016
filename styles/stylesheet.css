@@ -1,87 +1,37 @@
-dfgdfg
-
 * {
 	header: 0;
 	margin: 0;
 }
 
-html{
-    position:relative;
-    min-height: 100%;
-}
-
 body{
     background:#f2f2f2 !important;
-    font-family: equity !important;
-    margin-bottom:100px;
 }
 
 #breadCrumbs{
-	float:left; margin-top: 10px; margin-left:50px;
-}
-#topArtistButton{
-	float:left; margin-top:10px; width:150px;
+	display:inline-block;
+	margin: 7px 10px;
 }
 
-#songName{
-    background-color:#336699;
-    margin-top:-20px;
-    width:100%;
+#fireGlyph{
+	display:inline-block;
+	font-size:5em;
 }
 
-.imgAbt{
-	margin-top:25px;
+#mainHeader{
+	display:inline-block;
 }
 
 @font-face{
-    font-family: papyrus; src: url('PAPYRUS.TTF');
+    font-family: papyru; 
+	src: url('PAPYRUS.TTF');
 }
 
-.social-icons{
-    margin-top:-75px;
-    text-align:right;
-	border:0;
-
-
+.center{
+	text-align:center;
 }
 
-.header{
-    font-size:4em;
-    font-family:papyrus;
-    color:white;
-}
-
-.page-header{
-    
-    height:10em;
-   background-color:#262626;
-    color:white;
-    margin-top:0em;
-    padding-top:2.5em;
-    padding-left:2em;  
-}
-
-.page-header p{
-    font-size:18px;  
-    color:white;
-}
-
-p{
-    font-size:14px;
-    color:black;
-}
-
-#nav1.container-fluid{
-    padding-top:10px;
-  
-}
-
-.navbar navbar-default{
-	background-color:#262626;
-}
-
-.nav navbar-nav navbar-right li{
-    color:white;
+.papyrus{
+    font-family:papyru,papyrus;
 }
 
 .carousel-inner > .item > img,
@@ -101,6 +51,12 @@ p{
     font-family:papyrus;
 }
 
+.articlePictures{
+	width: 22em;
+	height: 15em;
+	margin:auto;
+}
+
 #accordion{
     width:60%;
     margin:auto;
@@ -111,10 +67,6 @@ p{
    color:white;
 }
 
-.articleStyle{
-    margin-top:20px;
-}
-
 canvas{
     width:100%; 
     background-color:#262626;
@@ -122,19 +74,14 @@ canvas{
 
 
 #lyricStyle{
-	 text-align:center; 
-	 margin-bottom:10em;
+	 text-align:center;
 }
 
 
 footer{
-	clear: both;
 	text-align:center;
     background-color:#262626;
     padding-top:2em;
-    position:absolute;
-    bottom:0;
-    width:98.5%;
     height:5em;
     margin-top:4em; 
 }
@@ -144,19 +91,22 @@ footer p{
 }
 
 #signUpFeedback{
-    font-family:arial;
     margin-top:6em;
 }
 
 #loginFeedback{
-    font-family:arial;
     margin-top:6em;
 }
 
-#signup.container{
-    width:350px;
+#topArtistButton:link {
 }
 
-#login.container{
-    width:350px;
+#topArtistButton:visited {
+}
+
+#topArtistButton:hover {
+	color:#4565B0;
+}
+
+#topArtistButton:active {
 }

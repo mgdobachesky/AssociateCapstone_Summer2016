@@ -1,8 +1,9 @@
 <script type="text/javascript" src="/bubbaLyrics/scripts/signUpScript.js"></script>
-<div class="col-md-4 col-md-offset-4">
-	<div id="signup" class="container-fluid">
-		<h2>Sign Up</h2>
-		<legend></legend>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<legend>Sign Up</legend>
 				<form>
 				  <div class="form-group">
 					<label for="txtUser">Username:</label>
@@ -43,19 +44,9 @@
 						Female
 					  </label>
 					</div>
-					<legend></legend>
-					 <div class="checkbox">
-						<label>
-						  <input type="checkbox">Want to receieve our monthly newsletter? Check the box to opt into our email program!
-						</label>
-					 </div>
-				
-				  </fieldset>
-
-		 
-		  <button type="submit" class="btn btn-primary">Sign Up</button>
-		</form>
-		
-		
+					</fieldset>
+					<button type="submit" class="btn btn-primary">Sign Up</button>
+				</form>
+		</div>
 	</div> 
 </div>

@@ -1,6 +1,7 @@
-			<footer>
+		<footer class="footer">
+			<div class="container-fluid">
 				<p>Copyright &copy; <?php echo date('Y'); ?> by Bubba Lyrics. All Rights Reserved</p>
-			</footer>
-		</div>
+			</div>
+		</footer>
     </body>
 </html>  

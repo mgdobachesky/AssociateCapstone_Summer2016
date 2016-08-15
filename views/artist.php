@@ -1,52 +1,35 @@
-<!--My Copy test-->
-
-<!--More Test-->
 <script type="text/javascript" src="/bubbaLyrics/scripts/artistScript.js"></script>
-<script type="text/javascript" src="/bubbaLyrics/scripts/canvas.js"></script>
 
-<div class="row">
-	<div class="container-fluid">
-		<div class="col-md-12">
-            <canvas id="canvas" width="1800" height="100"></canvas>
-      <img id="musicNote" width="0" height="0" src="/bubbaLyrics/images/musicNote.png" alt="Music Note">
-			<h1 id="artistName" style="text-align:center;"></h1>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+			<h1 id="artistName" class="center"></h1>
 		</div>
 	</div>
-    
-</div>
 
-<div class="row">
-	<div class="container-fluid">
-		<div id="artistPic" class="col-md-3"></div> 
-		<div id="artistBio" class="col-md-9"></div>
+	<div class="row">
+		<div id="artistPic" class="col-md-4 center"></div> 
+		<div id="artistBio" class="col-md-6"></div>
 	</div>
-</div>
-
-<div class="row">
-	<div class="container-fluid">
-		
-		<div class="col-md-6" style="margin-top:15px;">
-            <p><em><strong>Click an album to view songs from specified album...</strong></em></p>
-			<div class="panel panel-primary">
-				<!-- Default panel contents -->
-				<div class="panel-heading">Albums</div>
-				<table id="tblAlbums" class="table table-hover"></table>
-			</div>
+	<br />
+	<div class="row">
+		<br />
+		<div class="col-md-1"></div>
+		<div class="col-md-4">
+			<!-- Default panel contents -->
+			<div class="panel-heading center">Albums</div>
+			<table id="tblAlbums" class="table table-hover center"></table>
 			<ul class="pager">
 				<li id="albumPrev"><a href="#">Previous</a></li>
 				<li id="albumNxt"><a href="#">Next</a></li>
 			</ul>
 		</div>
-	
-		<div class="col-md-6" style="margin-top:15px;">
-            <p><em><strong>Click a song to view the lyrics from specified song...</strong></em></p>
-			<div class="panel panel-primary">
-				<!-- Default panel contents -->
-				<div id="albumName" class="panel-heading">Songs</div>
-				<table id="tblSongs" class="table table-hover"></table>
-			</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-4">
+			<!-- Default panel contents -->
+			<div id="albumName" class="panel-heading center">Songs</div>
+			<table id="tblSongs" class="table table-hover center"></table>
 		</div>
-        
-		
 	</div>
 </div>

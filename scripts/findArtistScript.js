@@ -58,7 +58,7 @@
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
 				s_artist_rating:"DESC",
 				page:pageNum,
-				page_size:12,
+				page_size:15,
 				format:"jsonp",
 				callback:"jsonp_callback"
 			},
