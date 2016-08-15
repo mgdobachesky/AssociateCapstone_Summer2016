@@ -7,6 +7,8 @@ $action = $_REQUEST['action'];
 include("views/header.php");
 //if there is no action, display the home page
 if($action == NULL || empty($action)):
+	$carouselItems = getCarousel($db);
+	$articleItems = getArticles($db);
 	include("views/home.php");
 endif;
 //this switch uses the action to determine what content to load

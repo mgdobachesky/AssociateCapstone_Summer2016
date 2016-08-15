@@ -86,8 +86,9 @@ p{
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width:100%;
-      margin:auto;
+	width: 60em;
+	height: 35em;
+	margin:auto;
   }
 
 .carousel-caption p{

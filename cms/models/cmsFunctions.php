@@ -112,13 +112,15 @@ function deleteCarouselPicture ($db, $slideNumber) {
 }
 
 //function to upload a carousel picture. after deleting the old one, upload the new picture in its place
-function uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription) {
-	$sql = "INSERT INTO carousel(carouselId, slideNumber, carouselPictureLink, pictureDescription) VALUES (NULL, :slideNumber, :storeName, :fileDescription);";
+function uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription, $slideTitle, $slideContent) {
+	$sql = "INSERT INTO carousel(carouselId, slideNumber, carouselPictureLink, pictureDescription, slideTitle, slideDescription) VALUES (NULL, :slideNumber, :storeName, :fileDescription, :slideTitle, :slideDescription);";
 	try {
 		$ps = $db->prepare($sql);
 		$ps->bindValue(':slideNumber', $slideNumber);
 		$ps->bindValue(':storeName', $storeName);
 		$ps->bindValue(':fileDescription', $fileDescription);
+		$ps->bindValue(':slideTitle', $slideTitle);
+		$ps->bindValue(':slideDescription', $slideContent);
 		$ps->execute();
 	} catch(PDOException $e) {
 		return("There was a problem adding new carousel picture");
@@ -128,7 +130,7 @@ function uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription) 
 //function that gets information on a certain carousel picture
 function slideInfo($db, $getSlide) {
 	try {
-		$sql = "SELECT carouselPictureLink, pictureDescription FROM carousel WHERE slideNumber='$getSlide';";
+		$sql = "SELECT carouselPictureLink, pictureDescription, slideTitle, slideDescription FROM carousel WHERE slideNumber='$getSlide';";
 		$results = $db->query($sql);
 		$slide = $results->fetch();
 		return $slide;

@@ -34,7 +34,14 @@ if ($_SESSION['userId'] == NULL || empty($_SESSION['userId'])) {
 					<input type="hidden" name="hiddenSlide" id="hiddenSlide">
 					<div class="form-group">
 						<label for="desc">File Description</label>
-						<input type="text" class="form-control" id="fileDescription" name="fileDescription" placeholder="Enter a description...">
+						<input type="text" class="form-control" id="fileDescription" name="fileDescription" maxlength="40" placeholder="Enter a description...">
+					</div>
+					<div class="form-group">
+						<label for="fileDescription">Slide Text</label>
+						<input type="text" class="form-control" id="slideTitle" name="slideTitle" maxlength="40" placeholder="Enter an slide title...">
+					</div>
+					<div class="form-group">
+						<textarea class="form-control" rows="5" id="slideContent" name="slideContent" placeholder="Enter slide description..."></textarea>
 					</div>
 					<input type="hidden" name="action" value="uploadCarouselFile">
 					<input type="submit" value="Upload" id="submitCarousel" class="btn btn-primary" />

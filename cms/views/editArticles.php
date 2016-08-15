@@ -34,14 +34,14 @@ if ($_SESSION['userId'] == NULL || empty($_SESSION['userId'])) {
 					<input type="hidden" name="hiddenArticle" id="hiddenArticle">
 					<div class="form-group">
 						<label for="fileDescription">File Description</label>
-						<input type="text" class="form-control" id="fileDescription" name="fileDescription" placeholder="Enter a description...">
+						<input type="text" class="form-control" id="fileDescription" name="fileDescription" maxlength="40" placeholder="Enter a description...">
 					</div>
 					<div class="form-group">
 						<label for="fileDescription">Article</label>
-						<input type="text" class="form-control" id="articleTitle" name="articleTitle" placeholder="Enter an article title...">
+						<input type="text" class="form-control" id="articleTitle" name="articleTitle" maxlength="40" placeholder="Enter an article title...">
 					</div>
 					<div class="form-group">
-						<textarea class="form-control" rows="5" id="articleContent" name="articleContent" placeholder="Enter article content here..."></textarea>
+						<textarea class="form-control" rows="5" id="articleContent" name="articleContent" placeholder="Enter article content..."></textarea>
 					</div>
 					<input type="hidden" name="action" value="uploadArticleFile">
 					<input type="submit" value="Upload" id="submitArticle" class="btn btn-primary" />

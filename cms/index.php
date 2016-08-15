@@ -21,7 +21,7 @@ switch ($action):
 	case "getPicture":
 		$getSlide = $_POST['getSlide'];
 		$slideInfo = slideInfo($db, $getSlide);
-		$json = '{"slideLink":"' . $slideInfo['carouselPictureLink'] . '", "slideDescription":"' . $slideInfo['pictureDescription'] . '"}';
+		$json = '{"slideLink":"' . $slideInfo['carouselPictureLink'] . '", "slideDescription":"' . $slideInfo['pictureDescription'] . '", "slideTitle":"' . $slideInfo['slideTitle'] .'", "slideContent":"' . $slideInfo['slideDescription'] .'"}';
 		echo $json;
 		exit();
 	break;
@@ -99,9 +99,11 @@ switch ($action):
 			//collect information used to update a specific slide
 			$slideNumber = $_POST['hiddenSlide'];
 			$fileDescription = $_POST['fileDescription'];
+			$slideTitle = $_POST['slideTitle'];
+			$slideContent = $_POST['slideContent'];
 			//delete and then add the new carousel information for specified slide
 			deleteCarouselPicture($db, $slideNumber);
-			uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription);
+			uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription, $slideTitle, $slideContent);
 			include("/views/editCarousel.php");
 		} else {
 			$error = "Please choose a slide number to edit.";

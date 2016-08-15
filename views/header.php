@@ -5,18 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    
-    
     <!--jQuery/jQuery UI-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     
     <!--Bootstrap-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-       <link rel="stylesheet" href="/bubbaLyrics/styles/bootstrap-yeti.css">
-    <link rel="stylesheet" href="/bubbaLyrics/styles/styles.css">
+	<script src="/bubbaLyrics/cms/styles/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bubbaLyrics/cms/styles/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bubbaLyrics/styles/stylesheet.css">
 </head>
     <body>
 	<script type="text/javascript" src="/bubbaLyrics/scripts/headerScript.js"></script>
@@ -32,8 +29,6 @@
                     <a href="https://facebook.com"><img src="/bubbaLyrics/images/fb.png" width="35" height="35" alt="Facebook" /></a>
                     <a href="https://twitter.com"><img src="/bubbaLyrics/images/tw.png" width="35" height="35" alt="Twitter" /></a>
                     <a href="https://youtube.com"><img src="/bubbaLyrics/images/yt.png" width="35" height="35" alt="Youtube" /></a>
-                        
-                    
                     </div>
                 </div>
             </div>

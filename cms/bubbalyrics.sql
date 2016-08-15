@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2016 at 04:58 PM
+-- Generation Time: Aug 15, 2016 at 02:52 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -48,7 +48,7 @@ CREATE TABLE `articles` (
   `articlePictureLink` varchar(40) NOT NULL,
   `articleTitle` varchar(80) NOT NULL,
   `articleContent` text NOT NULL,
-  `pictureDescription` varchar(40) NOT NULL
+  `pictureDescription` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -73,19 +73,21 @@ CREATE TABLE `carousel` (
   `carouselId` int(11) NOT NULL,
   `slideNumber` varchar(11) NOT NULL,
   `carouselPictureLink` varchar(40) NOT NULL,
-  `pictureDescription` varchar(40) NOT NULL
+  `pictureDescription` varchar(40) DEFAULT NULL,
+  `slideTitle` varchar(40) DEFAULT NULL,
+  `slideDescription` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `carousel`
 --
 
-INSERT INTO `carousel` (`carouselId`, `slideNumber`, `carouselPictureLink`, `pictureDescription`) VALUES
-(2, '1', '1470857493sliderpic1.jpg', 'sliderpic1'),
-(3, '2', '1470857506sliderpic2.jpg', 'sliderpic2'),
-(4, '3', '1470857524sliderpic3.jpg', 'sliderpic3'),
-(5, '4', '1470857536sliderpic4.jpg', 'sliderpic4'),
-(8, '5', '1470857675sliderpic5.jpg', 'sliderpic5');
+INSERT INTO `carousel` (`carouselId`, `slideNumber`, `carouselPictureLink`, `pictureDescription`, `slideTitle`, `slideDescription`) VALUES
+(2, '1', '1470857493sliderpic1.jpg', 'sliderpic1', 'Featured Stuff', 'Duo reges constructio interrete. Sed quid minus probandum quam esse aliquem beatum nec satis beatum'),
+(3, '2', '1470857506sliderpic2.jpg', 'sliderpic2', 'Featured Stuff', 'Quamvis enim depravatae non sint, pravae tamen esse possun sin tantum modo'),
+(4, '3', '1470857524sliderpic3.jpg', 'sliderpic3', 'Featured Stuff', 'Hic nihil fuit, quod quaereremus. Quae in controversiam veniunt, de iis, si placet, disseramus.'),
+(5, '4', '1470857536sliderpic4.jpg', 'sliderpic4', 'Featured Stuff', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.'),
+(8, '5', '1470857675sliderpic5.jpg', 'sliderpic5', 'Featured Stuff', 'Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.');
 
 -- --------------------------------------------------------
 
@@ -99,8 +101,8 @@ CREATE TABLE `personinformation` (
   `userId` int(11) NOT NULL,
   `firstName` varchar(40) NOT NULL,
   `lastName` varchar(40) NOT NULL,
-  `phoneNumber` varchar(40) NOT NULL,
-  `gender` varchar(40) NOT NULL
+  `phoneNumber` varchar(40) DEFAULT NULL,
+  `gender` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -177,17 +179,17 @@ ALTER TABLE `userlogin`
 -- AUTO_INCREMENT for table `adminnotes`
 --
 ALTER TABLE `adminnotes`
-  MODIFY `noteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `noteId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `articleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `articleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `carouselId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `carouselId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `personinformation`
 --
