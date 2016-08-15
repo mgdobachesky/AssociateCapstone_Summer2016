@@ -25,6 +25,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
+							<a class="navbar-brand" id="navbarFire" href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-fire"></span></a>
 							<a class="navbar-brand" id="topArtistButton" href="/bubbaLyrics/index.php?action=findArtist">Top Artists</a>
 						</div>
 						<div class="collapse navbar-collapse" id="myNavbar">
@@ -52,7 +53,7 @@
 					<div class="container-fluid center">
 						<a id="fireGlyph" href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-fire"></span></a>
 						<h1 id="mainHeader" class="papyrus">Bubba Lyrics</h1>
-						<p class="papyrus">Your go to source for finding the lyrics to the songs you love!</p>
+						<p class="papyrus">Your go to source for the songs you love!</p>
 					</div>
 				</div>
 			</div>

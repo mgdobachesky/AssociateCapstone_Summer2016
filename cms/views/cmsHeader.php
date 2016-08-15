@@ -4,9 +4,9 @@
     <title>Bubba Lyrics - CMS</title>  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="/bubbaLyrics/cms/styles/jquery/jquery.min.js"></script>
-	<script src="/bubbaLyrics/cms/styles/bootstrap/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/bubbaLyrics/cms/styles/bootstrap/css/bootstrap.min.css">
+	<script src="/bubbaLyrics/styles/jquery/jquery.min.js"></script>
+	<script src="/bubbaLyrics/styles/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bubbaLyrics/styles/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/bubbaLyrics/cms/styles/stylesheet.css">
 </head>
 <body>
