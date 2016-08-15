@@ -46,7 +46,7 @@ CREATE TABLE `articles` (
   `articleId` int(11) NOT NULL,
   `articleNumber` varchar(11) NOT NULL,
   `articlePictureLink` varchar(40) NOT NULL,
-  `articleTitle` varchar(80) DEFAULT NULL,
+  `articleTitle` varchar(80) NOT NULL,
   `articleContent` text NOT NULL,
   `pictureDescription` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

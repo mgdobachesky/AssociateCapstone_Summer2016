@@ -85,10 +85,10 @@ function storeImage($fileType, $fileName, $uploadType){
 	if (preg_match('/^image\/p?jpeg$/i', $fileType) ||
 	preg_match('/^image\/gif$/i', $fileType) ||
 	preg_match('/^image\/(x-)?png$/i', $fileType)) {
-		// The complete path/filename
+		//the complete path filename
 		$uniqueName = time() . $fileName;
 		$filename = '/xampp/htdocs/bubbaLyrics/cms/images/' . $uniqueName;
-		// Copy the file (if it is deemed safe)
+		//copy the file if it is deemed safe
 		if (!is_uploaded_file($_FILES[$uploadType]['tmp_name']) || 
 		!copy($_FILES[$uploadType]['tmp_name'], $filename)) {
 			$error = "Could not save file as $filename.";
