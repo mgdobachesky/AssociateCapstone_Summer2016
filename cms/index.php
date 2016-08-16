@@ -95,14 +95,15 @@ switch ($action):
 			$fileName = $_FILES['carouselFileUpload']['name'];
 			$uploadType = 'carouselFileUpload';
 			//run function that stores the image
-			$storeName = storeImage($fileType, $fileName, $uploadType);
+			if(!empty($fileName) && $fileName != NULL) {
+				$storeName = storeImage($fileType, $fileName, $uploadType);
+			}
 			//collect information used to update a specific slide
 			$slideNumber = $_POST['hiddenSlide'];
 			$fileDescription = $_POST['fileDescription'];
 			$slideTitle = $_POST['slideTitle'];
 			$slideContent = $_POST['slideContent'];
-			//delete and then add the new carousel information for specified slide
-			deleteCarouselPicture($db, $slideNumber);
+			//update with the new carousel information for specified slide
 			uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription, $slideTitle, $slideContent);
 			include("/views/editCarousel.php");
 		} else {
@@ -119,14 +120,15 @@ switch ($action):
 			$fileName = $_FILES['articleFileUpload']['name'];
 			$uploadType = 'articleFileUpload';
 			//run a function that will store the article image
-			$storeName = storeImage($fileType, $fileName, $uploadType);
+			if(!empty($fileName) && $fileName != NULL) {
+				$storeName = storeImage($fileType, $fileName, $uploadType);
+			}
 			//collect information used to update a specific article
 			$articleNumber = $_POST['hiddenArticle'];
 			$fileDescription = $_POST['fileDescription'];
 			$articleTitle = $_POST['articleTitle'];
 			$articleContent = $_POST['articleContent'];
-			//delete and then update the specified article
-			deleteArticle($db, $articleNumber);
+			//update the specified article
 			uploadArticle($db, $storeName, $articleNumber, $fileDescription, $articleTitle, $articleContent);
 			include("/views/editArticles.php");
 		} else {

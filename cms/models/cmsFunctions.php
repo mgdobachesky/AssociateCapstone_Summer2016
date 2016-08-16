@@ -103,27 +103,34 @@ function storeImage($fileType, $fileName, $uploadType){
 	}
 }
 
-//function to clear out a spot for a new picture link in the carousel
-function deleteCarouselPicture ($db, $slideNumber) {
-	$sql = "DELETE FROM carousel WHERE slideNumber = :slideNumber;";
-	$ps = $db->prepare($sql);
-	$ps->bindValue(':slideNumber', $slideNumber);
-	$ps->execute();
-}
-
-//function to upload a carousel picture. after deleting the old one, upload the new picture in its place
+//function to updates a carousel picture
 function uploadCarouselPicture($db, $storeName, $slideNumber, $fileDescription, $slideTitle, $slideContent) {
-	$sql = "INSERT INTO carousel(carouselId, slideNumber, carouselPictureLink, pictureDescription, slideTitle, slideDescription) VALUES (NULL, :slideNumber, :storeName, :fileDescription, :slideTitle, :slideDescription);";
-	try {
-		$ps = $db->prepare($sql);
-		$ps->bindValue(':slideNumber', $slideNumber);
-		$ps->bindValue(':storeName', $storeName);
-		$ps->bindValue(':fileDescription', $fileDescription);
-		$ps->bindValue(':slideTitle', $slideTitle);
-		$ps->bindValue(':slideDescription', $slideContent);
-		$ps->execute();
-	} catch(PDOException $e) {
-		return("There was a problem adding new carousel picture");
+	if(!empty($storeName) && $storeName != NULL) {
+		$sql = "UPDATE carousel SET carouselPictureLink = :storeName, pictureDescription = :fileDescription, slideTitle = :slideTitle, slideDescription = :slideDescription WHERE slideNumber = :slideNumber;";
+		try {
+			$ps = $db->prepare($sql);
+			$ps->bindValue(':slideNumber', $slideNumber);
+			$ps->bindValue(':storeName', $storeName);
+			$ps->bindValue(':fileDescription', $fileDescription);
+			$ps->bindValue(':slideTitle', $slideTitle);
+			$ps->bindValue(':slideDescription', $slideContent);
+			$ps->execute();
+		} catch(PDOException $e) {
+			return("There was a problem adding new carousel picture");
+		}
+	} else {
+		$sql = "UPDATE carousel SET pictureDescription = :fileDescription, slideTitle = :slideTitle, slideDescription = :slideDescription WHERE slideNumber = :slideNumber;";
+		try {
+			$ps = $db->prepare($sql);
+			$ps->bindValue(':slideNumber', $slideNumber);
+			$ps->bindValue(':fileDescription', $fileDescription);
+			$ps->bindValue(':slideTitle', $slideTitle);
+			$ps->bindValue(':slideDescription', $slideContent);
+			$ps->execute();
+		} catch(PDOException $e) {
+			return("There was a problem updating carousel picture");
+		}
+
 	}
 }
 
@@ -139,27 +146,33 @@ function slideInfo($db, $getSlide) {
 	}
 }
 
-//function to clear out a spot for a new article
-function deleteArticle ($db, $articleNumber) {
-	$sql = "DELETE FROM articles WHERE articleNumber = :articleNumber;";
-	$ps = $db->prepare($sql);
-	$ps->bindValue(':articleNumber', $articleNumber);
-	$ps->execute();
-}
-
-//function to upload an article. after deleting the old one, upload the new article in its place
+//function to updates an article
 function uploadArticle($db, $storeName, $articleNumber, $fileDescription, $articleTitle, $articleContent) {
-	$sql = "INSERT INTO articles(articleId, articleNumber, articlePictureLink, articleTitle, articleContent, pictureDescription) VALUES (NULL, :articleNumber, :storeName, :articleTitle, :articleContent, :pictureDescription);";
-	try {
-		$ps = $db->prepare($sql);
-		$ps->bindValue(':articleNumber', $articleNumber);
-		$ps->bindValue(':storeName', $storeName);
-		$ps->bindValue(':articleTitle', $articleTitle);
-		$ps->bindValue(':articleContent', $articleContent);
-		$ps->bindValue(':pictureDescription', $fileDescription);
-		$ps->execute();
-	} catch(PDOException $e) {
-		return("There was a problem adding new article picture");
+	if(!empty($storeName) && $storeName != NULL) {
+		$sql = "UPDATE articles SET articlePictureLink = :storeName, articleTitle = :articleTitle, articleContent = :articleContent, pictureDescription = :pictureDescription WHERE articleNumber = :articleNumber;";
+		try {
+			$ps = $db->prepare($sql);
+			$ps->bindValue(':articleNumber', $articleNumber);
+			$ps->bindValue(':storeName', $storeName);
+			$ps->bindValue(':articleTitle', $articleTitle);
+			$ps->bindValue(':articleContent', $articleContent);
+			$ps->bindValue(':pictureDescription', $fileDescription);
+			$ps->execute();
+		} catch(PDOException $e) {
+			return("There was a problem adding new article picture");
+		}
+	} else {
+		$sql = "UPDATE articles SET articleTitle = :articleTitle, articleContent = :articleContent, pictureDescription = :pictureDescription WHERE articleNumber = :articleNumber;";
+		try {
+			$ps = $db->prepare($sql);
+			$ps->bindValue(':articleNumber', $articleNumber);
+			$ps->bindValue(':articleTitle', $articleTitle);
+			$ps->bindValue(':articleContent', $articleContent);
+			$ps->bindValue(':pictureDescription', $fileDescription);
+			$ps->execute();
+		} catch(PDOException $e) {
+			return("There was a problem updating article");
+		}
 	}
 }
 

@@ -11,6 +11,7 @@
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div id="artistPic" class="col-md-4 center"></div>
+		<br class="hidden-md hidden-lg hidden-xl" />
 		<div id="artistBio" class="col-md-4 justify"></div>
 	</div>
 	<br />
