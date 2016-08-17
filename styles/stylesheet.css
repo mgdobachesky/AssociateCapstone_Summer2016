@@ -47,10 +47,7 @@ body{
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
 	margin:auto;
-	max-height: 40em;
-	max-width: 65em;
-	min-height: 40em;
-	min-width: 65em;
+	height: 40em;
 }
 
 .carousel-caption p{
@@ -64,8 +61,7 @@ body{
 }
 
 .articlePictures{
-	max-width: 22em;
-	max-height: 15em;
+	height: 20em;
 	margin:auto;
 	float:right;
 }
