@@ -14,6 +14,8 @@
 
 <body>
 	<script type="text/javascript" src="/bubbaLyrics/scripts/headerScript.js"></script>
+	<script type="text/javascript" src="/bubbaLyrics/scripts/loginScript.js"></script>
+		
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -33,6 +35,10 @@
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="/bubbaLyrics/index.php?action=signUp"><span class="glyphicon glyphicon-check"></span> Sign Up</a></li>
 								<li><a href="/bubbaLyrics/index.php?action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+								
+									
+									
+								
 								<!--
 								<li><a href="/bubbaLyrics/index.php?action=profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 								<li><a href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
