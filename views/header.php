@@ -33,19 +33,15 @@
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ol id="breadCrumbs" class="breadcrumb hidden-xs"></ol>
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/bubbaLyrics/index.php?action=signUp"><span class="glyphicon glyphicon-check"></span> Sign Up</a></li>
-								<li><a href="/bubbaLyrics/index.php?action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-								
-									
-									
-								
-								<!--
-								<li><a href="/bubbaLyrics/index.php?action=profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-								<li><a href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
-								-->
+							<?php if ($_SESSION['loggedIn'] == NULL || empty($_SESSION['loggedIn'])) { ?>
+								<li><a href="/bubbaLyrics/index.php?action=login" id="btnloginSignup"><span class="glyphicon glyphicon-check"></span> Signup / Login</a></li>
+							<?php } else { ?>
+								<li><a href="/bubbaLyrics/index.php?action=profile" id="btnProfile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+								<li><a href="javascript:logoutBox();" id="btnLogout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+							<?php } ?>
 							</ul>
 							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group" >
+								<div class="form-group">
 									<input type="text" id="searchContent" class="form-control" placeholder="Search Artists..." />
 								</div>
 								<a class="btn btn-large btn btn-primary" id="searchClick"  href="/bubbaLyrics/index.php?action=searchResults">Go!</a>

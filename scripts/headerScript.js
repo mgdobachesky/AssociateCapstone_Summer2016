@@ -32,5 +32,15 @@
 				return false;
 			}
 		});
+		
+		 var width = screen.width / 4,
+            height = screen.height / 2,
+            left = (screen.width / 2) - (width / 2),
+            top = (screen.height / 2) - (height / 2);
+		
+		logoutBox = function() {
+			window.open("https://accounts.spotify.com/en/logout", "", 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + 'em, height=' + height + 'em, top=' + top + ', left=' + left);
+			window.location.assign("/bubbaLyrics/index.php?action=logout");
+		}
 	});
 }())
