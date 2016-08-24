@@ -38,7 +38,9 @@
 			document.getElementById('lyricTitle').innerText = data.message.body.track.artist_name;
 			document.getElementById('albumTitle').innerText = data.message.body.track.album_name;
 			document.getElementById('songTitle').innerText = data.message.body.track.track_name;
-			localStorage.setItem("spotifyId", data.message.body.track.track_spotify_id);
+			//localStorage.setItem("spotifyId", data.message.body.track.track_spotify_id);
+			var spotifyId = data.message.body.track.track_spotify_id;
+			createWidget(spotifyId);
 			getLyric(data.message.body.track.track_id);	
 		});
 	}
@@ -69,10 +71,19 @@
 		});
 	}
 
+	createWidget = function(spotifyId){
+		var height = screen.height/10;
+		var width = screen.width/4;
+		var widgetString = "<iframe src='https://embed.spotify.com/?uri=spotify%3Atrack%3A" + spotifyId + "' width='" + width + "' height='" + height + "' frameborder='0' allowtransparency='true'></iframe>";
+		document.getElementById('playWidget').innerHTML = widgetString;
+	}
+	
 	$(document).ready(function(){
 		//get the songId chosen in the artistScript
 		songId = localStorage.getItem("songId");
+		
 		//run a function that uses the songId to get information for that song
 		getSong(songId);
+		
 	});
 }())
