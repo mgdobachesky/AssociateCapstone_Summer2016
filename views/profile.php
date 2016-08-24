@@ -4,9 +4,7 @@
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 			<h2>Profile</h2>
-		</div>
-	</div>
-</div>
+
 <?php 
 $session = new SpotifyWebAPI\Session(
 	'79e1533a10f148bc9488feffa632ff63',
@@ -19,10 +17,18 @@ if (isset($_GET['code'])) {
 	$api->setAccessToken($session->getAccessToken());
 	print_r($api->me());
 	
+	//me gets all profile data, after that use to manipulate
 	$me = $api->me();
+	//get profile picture
 	$pictures = $me->images;
 	$img = $pictures[0]->url;
 	echo "<img src='" . $img . "' />";
+	//get display name
+	$display_name = $me->display_name;
+	echo "<h3>" . $display_name . "</h3>";
+	
+	
+	
 } else {
 	$scopes = array(
 		'scope' => array(
@@ -33,3 +39,7 @@ if (isset($_GET['code'])) {
 	header('Location: ' . $session->getAuthorizeUrl($scopes));
 }
 ?>
+
+		</div>
+	</div>
+</div>
