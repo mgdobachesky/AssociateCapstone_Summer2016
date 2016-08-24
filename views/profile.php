@@ -19,14 +19,31 @@ if (isset($_GET['code'])) {
 	
 	//me gets all profile data, after that use to manipulate
 	$me = $api->me();
+	
 	//get profile picture
 	$pictures = $me->images;
 	$img = $pictures[0]->url;
 	echo "<img src='" . $img . "' />";
+	
 	//get display name
 	$display_name = $me->display_name;
 	echo "<h3>" . $display_name . "</h3>";
 	
+	//get email
+	$email = $me->email;
+	echo "<h3>" . $email . "</h3>";
+	
+	//get external urls
+	$external_urls = $me->external_urls;
+	echo "<h3>" . $external_urls . "</h3>";
+	
+	//get spotify account
+	$spotify = $me->spotify;
+	echo "<h3>" . $spotify . "</h3>";
+	
+	//get spotify followers
+	$folowers = $me->followers;
+	echo "<h3>" . $followers . "</h3>";
 	
 	
 } else {
