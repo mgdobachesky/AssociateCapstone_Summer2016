@@ -15,10 +15,20 @@ $api = new SpotifyWebAPI\SpotifyWebAPI();
 if (isset($_GET['code'])) {
 	$session->requestAccessToken($_GET['code']);
 	$api->setAccessToken($session->getAccessToken());
-	//print_r($api->me());
+	
+	$playlists = $api->getUserPlaylists('123798607', array(
+    'limit' => 5
+));
+	
+	
+	print_r($api->me());
+	echo "<br />";
 	
 	//me gets all profile data, after that use to manipulate
 	$me = $api->me();
+	//$playlists = $api->getUserPlaylists($me->id, array('limit' => 5));
+	
+	
 	
 	//get profile picture
 	$pictures = $me->images;
@@ -46,14 +56,21 @@ if (isset($_GET['code'])) {
 	echo "<h3>Followers: " . $total . "</h3>";
 
 	
-	
+	foreach ($playlists->items as $playlist) {
+		echo '<a href="' . $playlist->external_urls->spotify . '">' . $playlist->name . '</a> <br>';
+	}
 	
 	
 } else {
 	$scopes = array(
 		'scope' => array(
-			'user-read-email',
-			'user-library-modify',
+			'user-follow-modify',
+				'user-follow-read',
+				'user-read-email',
+				'user-read-private',
+				'playlist-modify-private',
+				'playlist-modify-public',
+				'playlist-read-private',
 		),
 	);
 	header('Location: ' . $session->getAuthorizeUrl($scopes));

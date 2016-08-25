@@ -41,8 +41,15 @@ if(($action == "login" || isset($_GET['code'])) && $action != "profile") {
 	} else {
 		$scopes = array(
 			'scope' => array(
+				'user-follow-modify',
+				'user-follow-read',
 				'user-read-email',
-				'user-library-modify',
+				'user-read-private',
+				 'playlist-modify-private',
+				'playlist-modify-public',
+				'playlist-read-private',
+			
+				
 			),
 		);
 		header('Location: ' . $session->getAuthorizeUrl($scopes));
