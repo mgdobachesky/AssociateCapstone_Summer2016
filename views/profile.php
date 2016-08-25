@@ -15,7 +15,7 @@ $api = new SpotifyWebAPI\SpotifyWebAPI();
 if (isset($_GET['code'])) {
 	$session->requestAccessToken($_GET['code']);
 	$api->setAccessToken($session->getAccessToken());
-	print_r($api->me());
+	//print_r($api->me());
 	
 	//me gets all profile data, after that use to manipulate
 	$me = $api->me();
@@ -33,17 +33,20 @@ if (isset($_GET['code'])) {
 	$email = $me->email;
 	echo "<h3>" . $email . "</h3>";
 	
-	//get external urls
-	$external_urls = $me->external_urls;
-	echo "<h3>" . $external_urls . "</h3>";
+	
 	
 	//get spotify account
-	$spotify = $me->spotify;
-	echo "<h3>" . $spotify . "</h3>";
+	$external_urls = $me->external_urls;
+	$external_url = $external_urls->spotify;
+	echo "<a href='" . $external_url . "'>Spotify Account</a>";
 	
-	//get spotify followers
-	$folowers = $me->followers;
-	echo "<h3>" . $followers . "</h3>";
+	//get followers
+	$followers = $me->followers;
+	$total = $followers->total;
+	echo "<h3>Followers: " . $total . "</h3>";
+
+	
+	
 	
 	
 } else {
