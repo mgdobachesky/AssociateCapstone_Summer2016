@@ -14,7 +14,6 @@
 
 <body>
 	<script type="text/javascript" src="/bubbaLyrics/scripts/headerScript.js"></script>
-	<script type="text/javascript" src="/bubbaLyrics/scripts/loginScript.js"></script>
 		
 	<div class="container-fluid">
 		<div class="row">
