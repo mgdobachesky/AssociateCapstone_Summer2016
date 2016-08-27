@@ -11,11 +11,8 @@
 			//me gets all profile data, after that use to manipulate
 			$me = $api->me();
 			
-			//**********************************************************
-			//NOTE: currently hard coded user for tesing
-			//**********************************************************
 			//get playlist data for a user
-			$playlists = $api->getUserPlaylists('123798607', array('limit' => 5));
+			$playlists = $api->getUserPlaylists($me->id, array('limit' => 5));
 			
 			//get display name
 			$display_name = $me->display_name;
