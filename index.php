@@ -56,6 +56,9 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 
 //logs a user out of the spotify api
 if($action == "logout") {
+	$cookieName = 'PHPSESSID';
+	unset($_COOKIE[$cookieName]);
+	$res = setcookie($cookieName, '', time() - 3600);
 	$_SESSION = array();
 	session_destroy();
 	header('Location: /bubbaLyrics/index.php');

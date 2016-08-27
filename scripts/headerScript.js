@@ -39,8 +39,8 @@
             top = (screen.height / 2) - (height / 2);
 		
 		logoutBox = function() {
-			window.open("https://accounts.spotify.com/en/logout", "", 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + 'em, height=' + height + 'em, top=' + top + ', left=' + left);
-			window.location.assign("/bubbaLyrics/index.php?action=logout");
+			logoutWindow = window.open("https://accounts.spotify.com/en/logout", "", 'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + 'em, height=' + height + 'em, top=' + top + ', left=' + left);
+			setTimeout(function(){logoutWindow.close();window.location.assign("/bubbaLyrics/index.php?action=logout");}, 1750);
 		}
 	});
 }())
