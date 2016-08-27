@@ -6,19 +6,11 @@
 			<h2>Profile</h2>
 
 <?php 
-$session = new SpotifyWebAPI\Session(
-	'79e1533a10f148bc9488feffa632ff63',
-	'd213c38bbe224dd0acfe17ba43d12a73',
-	'http://localhost/bubbaLyrics/index.php/callback/?action=profile'
-);
-$api = new SpotifyWebAPI\SpotifyWebAPI();
-if (isset($_GET['code'])) {
-	$session->requestAccessToken($_GET['code']);
-	$api->setAccessToken($session->getAccessToken());
+
+	$session = unserialize($_SESSION['session']);
+	$api = unserialize($_SESSION['api']);
 	
-	$playlists = $api->getUserPlaylists('123798607', array(
-    'limit' => 5
-));
+	$playlists = $api->getUserPlaylists('123798607', array('limit' => 5));
 	
 	
 	print_r($api->me());
@@ -57,24 +49,9 @@ if (isset($_GET['code'])) {
 
 	
 	foreach ($playlists->items as $playlist) {
-		echo '<a href="' . $playlist->external_urls->spotify . '">' . $playlist->name . '</a> <br>';
+		print_r($playlist);
+		echo "<br /><br />";
 	}
-	
-	
-} else {
-	$scopes = array(
-		'scope' => array(
-			'user-follow-modify',
-				'user-follow-read',
-				'user-read-email',
-				'user-read-private',
-				'playlist-modify-private',
-				'playlist-modify-public',
-				'playlist-read-private',
-		),
-	);
-	header('Location: ' . $session->getAuthorizeUrl($scopes));
-}
 ?>
 
 		</div>
