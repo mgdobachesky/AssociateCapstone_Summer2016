@@ -21,6 +21,15 @@ body{
 	display:inline-block;
 }
 
+#profilePicture{
+	display: inline-block;
+	margin-right: 1em;
+}
+#spotifyPlaylist{
+	clear: both;
+	margin-top: 2em;
+}
+
 #artistBio{
 	max-height:20em;
 	overflow:auto;
@@ -38,6 +47,20 @@ body{
 .justify{
 	text-align:justify;
 	text-justify: inter-word;
+}
+
+.float-left{
+	float:left;
+}
+
+.inline-block{
+	display:inline-block;
+}
+
+.playlist{
+	height:15em;
+	margin-right: 2em;
+	margin-bottom: 1em;
 }
 
 .papyrus{

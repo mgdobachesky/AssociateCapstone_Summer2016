@@ -1,7 +1,5 @@
 <?php
 session_start();
-error_reporting(-1);
-//ini_set('display_errors', 1);
 
 require 'src/Request.php';
 require 'src/Session.php';
@@ -9,6 +7,7 @@ require 'src/SpotifyWebAPI.php';
 require 'src/SpotifyWebAPIException.php';
 require("models/dbConn.php");
 require("models/functions.php");
+
 //catch the action of this script
 $action = $_REQUEST['action'];
 
@@ -26,8 +25,8 @@ if($action == NULL || empty($action)):
 	include("views/home.php");
 endif;
 
+//code that sets an authentication ticket for a user so he can access the spotify api
 if($action == "login" || isset($_GET['code']) && $action != "profile") {
-	
 	$session = new SpotifyWebAPI\Session(
 		'79e1533a10f148bc9488feffa632ff63',
 		'd213c38bbe224dd0acfe17ba43d12a73',
@@ -55,6 +54,7 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 	}
 }
 
+//logs a user out of the spotify api
 if($action == "logout") {
 	$_SESSION = array();
 	session_destroy();
