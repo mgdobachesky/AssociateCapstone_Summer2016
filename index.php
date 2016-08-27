@@ -48,9 +48,7 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 				'user-read-private',
 				'playlist-modify-private',
 				'playlist-modify-public',
-				'playlist-read-private',
-			
-				
+				'playlist-read-private',	
 			),
 		);
 		header('Location: ' . $session->getAuthorizeUrl($scopes));
