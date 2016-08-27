@@ -38,7 +38,6 @@
 			document.getElementById('lyricTitle').innerText = data.message.body.track.artist_name;
 			document.getElementById('albumTitle').innerText = data.message.body.track.album_name;
 			document.getElementById('songTitle').innerText = data.message.body.track.track_name;
-			//localStorage.setItem("spotifyId", data.message.body.track.track_spotify_id);
 			var spotifyId = data.message.body.track.track_spotify_id;
 			createWidget(spotifyId);
 			getLyric(data.message.body.track.track_id);	
@@ -64,7 +63,9 @@
 		.done(function(data){
 			var htmlString = data.message.body.lyrics.lyrics_body;
 			if(htmlString != "") {
-				document.getElementById('lyricSpace').innerText = htmlString;	
+				var lyricsCutoff = htmlString.indexOf("...");
+				var slicedLyrics = htmlString.slice(0, lyricsCutoff);
+				document.getElementById('lyricSpace').innerText = slicedLyrics;	
 			} else {
 				document.getElementById('lyricSpace').innerText = "No lyrics on record for this track";
 			}
@@ -84,6 +85,5 @@
 		
 		//run a function that uses the songId to get information for that song
 		getSong(songId);
-		
 	});
 }())
