@@ -36,15 +36,13 @@
 		//Animate Particle
 		function draw()
 		{
-
 			//Fill in canvas color
-			ctx.fillStyle = "#262626";
+			ctx.fillStyle = "white";
 			ctx.fillRect(0,0,W,H);
 
 			//Draw particles from the array
 			for (var t = 0; t < particles.length; t++)
 			{
-
 				var p = particles[t]; 
 
 				//Grab image element by id
