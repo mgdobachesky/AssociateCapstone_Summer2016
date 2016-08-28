@@ -109,3 +109,8 @@ body{
 #navbarFire:hover {
 	color:#4565B0;
 }
+
+#canvas{
+   width:100%;
+   background-color:white;
+}

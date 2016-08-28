@@ -15,7 +15,8 @@
 
 <body>
 	<script type="text/javascript" src="/bubbaLyrics/scripts/headerScript.js"></script>
-		
+	<script type="text/javascript" src="/bubbaLyrics/scripts/canvas.js"></script>
+	
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -50,14 +51,22 @@
 					</div>           
 				</nav>
 				<br />
-				<br />				
+				<br />	
+
 				<div class="jumbotron">
+				
 					<div class="container-fluid center">
 						<a id="fireGlyph" href="/bubbaLyrics/index.php"><span class="glyphicon glyphicon-fire"></span></a>
+						
 						<h1 id="mainHeader" class="papyrus">Bubba Lyrics</h1>
 						<p class="papyrus">Your go to source for the songs you love!</p>
+						<canvas id="canvas" width="1800" height="100"></canvas>
+     				 <img id="musicNote" width="0" height="0" src="/bubbaLyrics/images/musicNote.jpeg" alt="Music Note">
+						
+						
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
