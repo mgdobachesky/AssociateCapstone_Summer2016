@@ -33,11 +33,11 @@
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ol id="breadCrumbs" class="breadcrumb hidden-xs"></ol>
 							<ul class="nav navbar-nav navbar-right">
-							<?php if ($_SESSION['loggedIn'] == NULL || empty($_SESSION['loggedIn'])) { ?>
-								<li><a href="/bubbaLyrics/index.php?action=login" id="btnloginSignup"><span class="glyphicon glyphicon-check"></span> Signup / Login</a></li>
-							<?php } else { ?>
+							<?php if ($_SESSION['api'] != NULL && !empty($_SESSION['api'])) { ?>
 								<li><a href="/bubbaLyrics/index.php?action=profile" id="btnProfile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 								<li><a href="javascript:logoutBox();" id="btnLogout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+							<?php } else { ?>
+								<li><a href="/bubbaLyrics/index.php?action=login" id="btnloginSignup"><span class="glyphicon glyphicon-check"></span> Signup / Login</a></li>
 							<?php } ?>
 							</ul>
 							<form class="navbar-form navbar-right" role="search">

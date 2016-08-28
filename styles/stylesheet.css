@@ -35,6 +35,10 @@ body{
 	overflow:auto;
 }
 
+#followArtist{
+	margin-top: .5em;
+}
+
 @font-face{
     font-family: papyrus; 
 	src: url('PAPYRUS.TTF');

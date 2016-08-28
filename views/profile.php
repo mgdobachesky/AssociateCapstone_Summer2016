@@ -5,7 +5,6 @@
 		<div class="col-md-4 col-md-offset-2">
 			<?php 
 			//prepare the session and api variable that were created in the controller
-			$session = unserialize($_SESSION['session']);
 			$api = unserialize($_SESSION['api']);
 			
 			//me gets all profile data, after that use to manipulate

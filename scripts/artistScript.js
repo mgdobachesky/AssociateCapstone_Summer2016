@@ -18,7 +18,7 @@
 		htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li><a href='/bubbaLyrics/index.php?action=searchResults'>Search</a></li><li class='active'>Artist</li>";
 		document.getElementById('breadCrumbs').innerHTML = htmlString;	
 	}
-		
+	
 	//get information on the artist such as picture and bio, then post on the artist page
 	artistInfo = function(artistMbid, bioLength) {
 		$.ajax({
@@ -88,6 +88,17 @@
 			contentType: 'application/json'
 		})
 		.done(function(data){
+			postName = data.message.body.artist.artist_name;
+			$.post("/bubbaLyrics/index.php?action=getArtist",
+			{
+				name: postName
+			},
+			function(data, status){
+				console.log(data);
+				if(data) {
+					document.getElementById('followArtist').innerHTML = "<iframe id='followArtist' src='https://embed.spotify.com/follow/1/?uri=spotify:artist:" + data + "&size=detail&theme=light' width='300' height='56' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' allowtransparency='true'></iframe>";
+				}
+			});
 			document.getElementById('artistName').innerHTML = data.message.body.artist.artist_name;
 			getAlbums(data, pageNum);
 		});

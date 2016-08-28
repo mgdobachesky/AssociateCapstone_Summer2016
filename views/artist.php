@@ -10,11 +10,14 @@
 
 	<div class="row">
 		<div class="col-md-2"></div>
-		<div id="artistPic" class="col-md-4 center"></div>
+		<div class="col-md-4">
+			<div id="artistPic" class="center"></div>
+			<div id="followArtist"class="center"></div>
+		</div>
 		<br class="hidden-md hidden-lg hidden-xl" />
 		<div id="artistBio" class="col-md-4 justify"></div>
 	</div>
-	<br />
+	
 	<div class="row">
 		<br />
 		<div class="col-md-2"></div>

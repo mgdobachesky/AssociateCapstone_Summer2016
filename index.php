@@ -11,19 +11,20 @@ require("models/functions.php");
 //catch the action of this script
 $action = $_REQUEST['action'];
 
-if(isset($_GET['code'])) {
-	$_SESSION['loggedIn'] = 1;
+if($action == "getArtist" && ($_POST['name'] != NULL && !empty($_POST['name'])) && ($_SESSION['api'] != NULL && !empty($_SESSION['api']))) {
+	$artistName = $_POST['name'];
+	
+	$api = unserialize($_SESSION['api']);
+	$results = $api->search($artistName, "artist");
+	foreach ($results->artists->items as $artist) {
+		$id = $artist->id;
+		echo $id;
+		break;
+	}
+	exit();
+} else if($action == "getArtist") {
+	exit();
 }
-
-//include the header
-include("views/header.php");
-
-//if there is no action, display the home page
-if($action == NULL || empty($action)):
-	$carouselItems = getCarousel($db);
-	$articleItems = getArticles($db);
-	include("views/home.php");
-endif;
 
 //code that sets an authentication ticket for a user so he can access the spotify api
 if($action == "login" || isset($_GET['code']) && $action != "profile") {
@@ -36,7 +37,6 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 	if (isset($_GET['code'])) {
 		$session->requestAccessToken($_GET['code']);
 		$api->setAccessToken($session->getAccessToken());
-		$_SESSION['session'] = serialize($session);
 		$_SESSION['api'] = serialize($api);
 	} else {
 		$scopes = array(
@@ -53,6 +53,16 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 		header('Location: ' . $session->getAuthorizeUrl($scopes));
 	}
 }
+
+//include the header
+include("views/header.php");
+
+//if there is no action, display the home page
+if($action == NULL || empty($action)):
+	$carouselItems = getCarousel($db);
+	$articleItems = getArticles($db);
+	include("views/home.php");
+endif;
 
 //logs a user out of the spotify api
 if($action == "logout") {
