@@ -19,6 +19,14 @@ if($action == "createPlaylist"){
 	exit();
 }
 
+if($action == "updatePlaylist"){
+	$playlistName = $_POST['playlistName'];
+	$playlistId = $_POST['playlistId'];
+	$api = unserialize($_SESSION['api']);
+	$api->updateUserPlaylist($_SESSION['spotifyUserId'], $playlistId, array('name' => $playlistName));
+	exit();
+}
+
 if($action == "getArtist" && ($_POST['name'] != NULL && !empty($_POST['name'])) && ($_SESSION['api'] != NULL && !empty($_SESSION['api']))) {
 	$artistName = $_POST['name'];
 	

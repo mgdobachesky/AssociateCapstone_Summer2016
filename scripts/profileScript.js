@@ -22,6 +22,27 @@
 				
 			});	
 		});
+		
+		updateSpotifyPlaylist = function(playlistId, playlistName){
+			
+			
+			$('#updatePlaylistButton').off();
+			$('#updatePlaylistName').val(playlistName);	
+			
+			$('#updatePlaylistButton').on("click", function(){
+				var updatePlaylistName = $('#updatePlaylistName').val();
+				console.log(updatePlaylistName);
+				$.post("/bubbaLyrics/index.php?action=updatePlaylist",
+					{
+						playlistName: updatePlaylistName,
+						playlistId: playlistId
+					},
+				function(data, status){
+					window.location.assign("/bubbaLyrics/index.php?action=profile");
+				});
+				
+			});	
+		}
 	});
 	
 	
