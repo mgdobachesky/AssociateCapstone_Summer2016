@@ -7,7 +7,7 @@
 
 		//Dimensions
 		var W = 1800; 
-		var H = 100;
+		var H = 125;
 
 		//Array of particles
 		var particles = [];
@@ -37,7 +37,7 @@
 		function draw()
 		{
 			//Fill in canvas color
-			ctx.fillStyle = "white";
+			ctx.fillStyle = "#f2f2f2";
 			ctx.fillRect(0,0,W,H);
 
 			//Draw particles from the array

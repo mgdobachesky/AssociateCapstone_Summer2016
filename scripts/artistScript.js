@@ -94,7 +94,6 @@
 				name: postName
 			},
 			function(data, status){
-				console.log(data);
 				if(data) {
 					document.getElementById('followArtist').innerHTML = "<iframe id='followArtist' src='https://embed.spotify.com/follow/1/?uri=spotify:artist:" + data + "&size=detail&theme=light' width='300' height='56' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' allowtransparency='true'></iframe>";
 				}

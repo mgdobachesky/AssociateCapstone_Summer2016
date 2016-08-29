@@ -3,8 +3,8 @@
 
 <div class="container-fluid">
 	<div class="row">
-	<canvas id="canvas" width="1800" height="100"></canvas>
-    <img id="musicNote" width="0" height="0" src="/bubbaLyrics/images/musicNote.png" alt="Music Note">
+	<canvas id="canvas" width="1800" height="125" class="hidden-xs"></canvas>
+    <img id="musicNote" width="0" height="0" src="/bubbaLyrics/images/musicNote.png" alt="Music Note" class="hidden-xs">
 		<div class="col-md-4 col-md-offset-4">
 			<!-- Default panel contents -->
 			<div class="panel-heading center">Top Artists</div>
