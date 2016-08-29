@@ -9,4 +9,21 @@
 		var widgetString = "<iframe src='https://embed.spotify.com/?uri=" + playlistUri + "' width='" + width + "' height='" + height + "' frameborder='0' allowtransparency='true'></iframe>";
 		document.getElementById('spotifyPlaylist').innerHTML = widgetString;
 	}
+	
+	$(document).ready(function(){
+		$('#createPlaylistButton').click(function(){
+			var playlistName = $('#createPlaylistName').val();
+			
+			$.post("/bubbaLyrics/index.php?action=createPlaylist",
+			{
+				playlistName: playlistName
+			},
+			function(data, status){
+				
+			});	
+		});
+	});
+	
+	
+	
 }())

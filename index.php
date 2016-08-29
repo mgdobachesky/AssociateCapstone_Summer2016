@@ -11,6 +11,14 @@ require("models/functions.php");
 //catch the action of this script
 $action = $_REQUEST['action'];
 
+if($action == "createPlaylist"){
+	$playlistName = $_POST['playlistName'];
+	$api = unserialize($_SESSION['api']);
+	$api->createUserPlaylist($_SESSION['spotifyUserId'], array('name' => $playlistName));
+
+	exit();
+}
+
 if($action == "getArtist" && ($_POST['name'] != NULL && !empty($_POST['name'])) && ($_SESSION['api'] != NULL && !empty($_SESSION['api']))) {
 	$artistName = $_POST['name'];
 	
@@ -38,6 +46,8 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 		$session->requestAccessToken($_GET['code']);
 		$api->setAccessToken($session->getAccessToken());
 		$_SESSION['api'] = serialize($api);
+		$me = $api->me();
+		$_SESSION['spotifyUserId'] = $me->id;
 	} else {
 		$scopes = array(
 			'scope' => array(
