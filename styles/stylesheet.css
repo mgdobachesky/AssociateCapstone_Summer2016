@@ -57,15 +57,28 @@ body{
 	float:left;
 }
 
+.float-right{
+	float:right;
+}
+
 
 .inline-block{
 	display:inline-block;
 }
 
 .playlist{
-	height:15em;
+	height:14em;
+	width:14em;
 	margin-right: 2em;
 	margin-bottom: 1em;
+}
+
+.playlistTitle{
+	width:14em;
+}
+
+.playlistOptions{
+	margin-bottom:1em;
 }
 
 .papyrus{
@@ -92,6 +105,12 @@ body{
 	height: 20em;
 	margin:auto;
 	float:right;
+}
+
+.playlistContainer{
+	width: 100%;
+	height:40em;
+	overflow:auto;
 }
 
 #articleContainer{

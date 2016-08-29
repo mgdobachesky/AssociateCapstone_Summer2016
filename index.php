@@ -42,6 +42,18 @@ if($action == "getArtist" && ($_POST['name'] != NULL && !empty($_POST['name'])) 
 	exit();
 }
 
+if($_SESSION['spotifyUserId']) {
+	$session = unserialize($_SESSION['session']);
+	$api = unserialize($_SESSION['api']);
+	// Fetch an old refresh token from somewhere...
+	$session->refreshAccessToken($_SESSION['refresh']);
+	$accessToken = $session->getAccessToken();
+
+	// Set the new access token on the API wrapper
+	$api->setAccessToken($accessToken);
+	$_SESSION['api'] = serialize($api);
+}
+
 //code that sets an authentication ticket for a user so he can access the spotify api
 if($action == "login" || isset($_GET['code']) && $action != "profile") {
 	$session = new SpotifyWebAPI\Session(
@@ -53,7 +65,10 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 	if (isset($_GET['code'])) {
 		$session->requestAccessToken($_GET['code']);
 		$api->setAccessToken($session->getAccessToken());
+		$refreshToken = $session->getRefreshToken();
+		$_SESSION['refresh'] = $refreshToken;
 		$_SESSION['api'] = serialize($api);
+		$_SESSION['session'] = serialize($session);
 		$me = $api->me();
 		$_SESSION['spotifyUserId'] = $me->id;
 	} else {

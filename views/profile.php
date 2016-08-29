@@ -11,7 +11,7 @@
 			$me = $api->me();
 			
 			//get playlist data for a user
-			$playlists = $api->getUserPlaylists($me->id, array('limit' => 5));
+			$playlists = $api->getUserPlaylists($me->id, array('limit' => 20));
 			
 			//get display name
 			$display_name = $me->display_name;
@@ -45,15 +45,59 @@
 			?>
 		</div>
 		
-		
-		
-		
-		
-		
-	
 		<div class="col-md-4">
+
+		<br />
 		
-		<div class="container">
+		<div class="container-fluid float-right playlistOptions">
+		  <!-- Trigger the modal with a button -->
+		  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#updatePlaylistModal">Update Playlist</button>
+
+		  <!-- Modal -->
+		  <div class="modal fade" id="updatePlaylistModal" role="dialog">
+			<div class="modal-dialog">
+			
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">Update Playlist</h4>
+				</div>
+				<div class="modal-body">
+				<form>
+					<div class="form-group">
+					  <label for="updatePlaylistName">Playlist Name:</label>
+					  <input type="text" class="form-control" id="updatePlaylistName">
+					</div>
+				 </form>
+				<?php
+				foreach ($playlists->items as $playlist) {
+					//get information on the playlist
+					$playlistName = $playlist->name;
+					$playlistId = $playlist->id;
+					
+					//display a link to the playlist with the playlist name as the title
+					echo "<div class='inline-block'>";
+					echo "<h4><a href='javascript:updateSpotifyPlaylist(&quot;" . $playlistId . "&quot;, &quot;" . $playlistName . "&quot; );'>" . $playlistName . "</a></h4>";
+					
+					echo "</div>";
+					echo "<br />";
+				}
+				?>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="updatePlaylistButton" class="btn btn-primary" data-dismiss="modal">Update</button>
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			  
+			</div>
+		  </div>
+		  
+		</div>
+		
+		
+		<div class="container-fluid float-right playlistOptions">
 		  <!-- Trigger the modal with a button -->
 		  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#createPlaylistModal">Create Playlist</button>
 
@@ -86,79 +130,8 @@
 		  </div>
 		  
 		</div>
-
 		
-		
-		
-		
-		<br />
-		
-		
-		
-		
-		
-		
-		
-		<div class="container">
-		  <!-- Trigger the modal with a button -->
-		  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#updatePlaylistModal">Update Playlist</button>
-
-		  <!-- Modal -->
-		  <div class="modal fade" id="updatePlaylistModal" role="dialog">
-			<div class="modal-dialog">
-			
-			  <!-- Modal content-->
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <button type="button" class="close" data-dismiss="modal">&times;</button>
-				  <h4 class="modal-title">Update Playlist</h4>
-				</div>
-				<div class="modal-body">
-				
-				
-				<form>
-					<div class="form-group">
-					  <label for="updatePlaylistName">Playlist Name:</label>
-					  <input type="text" class="form-control" id="updatePlaylistName">
-					</div>
-				 </form>
-				
-				<?php
-				foreach ($playlists->items as $playlist) {
-					//get information on the playlist
-					$playlistName = $playlist->name;
-					$playlistId = $playlist->id;
-					
-					//display a link to the playlist with the playlist name as the title
-					echo "<div class='inline-block'>";
-					echo "<h4><a href='javascript:updateSpotifyPlaylist(&quot;" . $playlistId . "&quot;, &quot;" . $playlistName . "&quot; );'>" . $playlistName . "</a></h4>";
-					
-					echo "</div>";
-					echo "<br />";
-				}
-				
-				
-				?>
-				
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="updatePlaylistButton" class="btn btn-primary" data-dismiss="modal">Update</button>
-				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			  </div>
-			  
-			</div>
-		  </div>
-		  
-		</div>
-		
-		
-		
-		
-		
-		
-		
-		
+		<div class="container-fluid playlistContainer">
 			<?php
 			//run a foreach loop to display each user playlist
 			foreach ($playlists->items as $playlist) {
@@ -170,7 +143,7 @@
 				
 				//display a link to the playlist with the playlist name as the title
 				echo "<div class='inline-block'>";
-				echo "<h4><a href='javascript:spotifyPlaylist(&quot;" . $playlistUri . "&quot;);'>" . $playlistName . "</a></h4>";
+				echo "<h4 class='playlistTitle'><a href='javascript:spotifyPlaylist(&quot;" . $playlistUri . "&quot;);'>" . $playlistName . "</a></h4>";
 				
 				//display the playlist image
 				echo "<img src='" . $img . "' class='playlist' />";

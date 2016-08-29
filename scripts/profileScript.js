@@ -19,7 +19,7 @@
 				playlistName: playlistName
 			},
 			function(data, status){
-				
+				window.location.assign("/bubbaLyrics/index.php?action=profile");
 			});	
 		});
 		
