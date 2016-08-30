@@ -17,8 +17,8 @@
 		document.getElementById('breadCrumbs').innerHTML = htmlString;	
 	}
 	
-	var spotifyId;
-	var spotifyPlaylistId;
+	var spotifyId = "";
+	var spotifyPlaylistId = "";
 
 	//get informaition for the songId of the selected song
 	getSong = function(songId){
@@ -44,6 +44,11 @@
 			spotifyId = data.message.body.track.track_spotify_id;
 			createWidget(spotifyId);
 			getLyric(data.message.body.track.track_id);	
+			
+			if(spotifyId != "") {
+				$('#addButton').html('<button type="button" class="btn btn-success btn-sm songPlaylist" data-toggle="modal" data-target="#addSongPlaylist" id="addButton">Add to Playlist</button>');
+				$('#removeButton').html('<button type="button" class="btn btn-danger btn-sm songPlaylist" data-toggle="modal" data-target="#removeSongPlaylist" id="removeButton">Remove from Playlist</button>');
+			}
 		});
 	}
 		
@@ -76,17 +81,15 @@
 	}
 
 	createWidget = function(spotifyId){
-		var height = screen.height/10;
-		var width = screen.width/4;
-		var widgetString = "<iframe src='https://embed.spotify.com/?uri=spotify%3Atrack%3A" + spotifyId + "' width='" + width + "' height='" + height + "' frameborder='0' allowtransparency='true'></iframe>";
-		document.getElementById('playWidget').innerHTML = widgetString;
+		if(spotifyId != "") {
+			var height = screen.height/10;
+			var width = screen.width/4;
+			var widgetString = "<iframe src='https://embed.spotify.com/?uri=spotify%3Atrack%3A" + spotifyId + "' width='" + width + "' height='" + height + "' frameborder='0' allowtransparency='true'></iframe>";
+			document.getElementById('playWidget').innerHTML = widgetString;
+		}
 	}
 	
-	addSongPlaylist = function(playlistId){
-		spotifyPlaylistId = playlistId;
-	}
-	
-	removeSongPlaylist = function(playlistId){
+	setPlaylistId = function(playlistId){
 		spotifyPlaylistId = playlistId;
 	}
 	
@@ -97,22 +100,42 @@
 		//run a function that uses the songId to get information for that song
 		getSong(songId);
 		
-		$('#addSongPlaylistButton').click(function(){
+		$('#addSongPlaylist').click(function(event){
+			$('#addFeedback').html("<p></p>");
+		});
+		
+		$('#removeSongPlaylist').click(function(event){
+			$('#removeFeedback').html("<p></p>");
+		});
+		
+		$('#addSongPlaylistButton').click(function(event){
 			$.post("/bubbaLyrics/index.php?action=addSongPlaylist",
 			{
 				playlistId: spotifyPlaylistId,
 				songId: spotifyId
 			},
-			function(data, status){});	
+			function(data, status){
+				if(data) {
+					$('#addFeedback').html("<p>" + data + "</p>");
+				} else {
+					$('#addSongPlaylist').modal('hide');
+				}
+			});	
 		});
 		
-		$('#removeSongPlaylistButton').click(function(){
+		$('#removeSongPlaylistButton').click(function(event){
 			$.post("/bubbaLyrics/index.php?action=removeSongPlaylist",
 			{
 				playlistId: spotifyPlaylistId,
 				songId: spotifyId
 			},
-			function(data, status){});	
+			function(data, status){
+				if(data) {
+					$('#removeFeedback').html("<p>" + data + "</p>");
+				} else {
+					$('#removeSongPlaylist').modal('hide');
+				}
+			});	
 		});
 	});
 }())

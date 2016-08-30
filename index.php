@@ -15,8 +15,17 @@ if($action == "addSongPlaylist"){
 	$playlistId = $_POST['playlistId'];
 	$songId = $_POST['songId'];
 	$api = unserialize($_SESSION['api']);
+	
+	$playlistTracks = $api->getUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId);
+	foreach ($playlistTracks->items as $track) {
+		$track = $track->track;
+		if($track->id == $songId) {
+			echo "This song already exists in the selected playlist!";
+			exit();
+		}
+	}
+	
 	$api->addUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, array($songId));
-
 	exit();
 }
 
@@ -24,9 +33,19 @@ if($action == "removeSongPlaylist"){
 	$playlistId = $_POST['playlistId'];
 	$songId = $_POST['songId'];
 	$api = unserialize($_SESSION['api']);
-	$track = array(array('id' => $songId));
-	$api->deleteUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, $track);
-
+	
+	$playlistTracks = $api->getUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId);
+	foreach ($playlistTracks->items as $track) {
+		$track = $track->track;
+		if($track->id == $songId) {
+			$delTrack = array(array('id' => $songId));
+			$api->deleteUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, $delTrack);
+			exit();
+		} else {
+			$feedback = "This song doesn't exist in the selected playlist!";
+		}
+	}	
+	echo $feedback;
 	exit();
 }
 
@@ -42,8 +61,18 @@ if($action == "updatePlaylist"){
 	$playlistName = $_POST['playlistName'];
 	$playlistId = $_POST['playlistId'];
 	$api = unserialize($_SESSION['api']);
-	$api->updateUserPlaylist($_SESSION['spotifyUserId'], $playlistId, array('name' => $playlistName));
-	exit();
+	
+	$playlists = $api->getUserPlaylists($_SESSION['spotifyUserId'], array('limit' => 20));
+	foreach ($playlists->items as $playlist) {
+		if ($playlistId == $playlist->id) {
+			$api->updateUserPlaylist($_SESSION['spotifyUserId'], $playlistId, array('name' => $playlistName));
+			exit();
+		} else {
+			$feedback = "You are not the owner of this playlist!";
+		}
+		echo $feedback;
+		exit();
+	}
 }
 
 if($action == "getArtist" && ($_POST['name'] != NULL && !empty($_POST['name'])) && ($_SESSION['api'] != NULL && !empty($_SESSION['api']))) {

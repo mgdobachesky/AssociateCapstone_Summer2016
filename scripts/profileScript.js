@@ -23,22 +23,29 @@
 			});	
 		});
 		
+		$('#updatePlaylistModel').click(function(){
+			$('#updatePlaylistFeedback').html("<p></p>");
+		});
+		
 		updateSpotifyPlaylist = function(playlistId, playlistName){
-			
-			
+			$('#updatePlaylistFeedback').html("<p></p>");
 			$('#updatePlaylistButton').off();
 			$('#updatePlaylistName').val(playlistName);	
 			
 			$('#updatePlaylistButton').on("click", function(){
 				var updatePlaylistName = $('#updatePlaylistName').val();
-				console.log(updatePlaylistName);
 				$.post("/bubbaLyrics/index.php?action=updatePlaylist",
 					{
 						playlistName: updatePlaylistName,
 						playlistId: playlistId
 					},
 				function(data, status){
-					window.location.assign("/bubbaLyrics/index.php?action=profile");
+					if(data) {
+						$('#updatePlaylistFeedback').html("<br /><p>" + data + "</p>");
+					} else {
+						$('#updatePlaylistModal').modal('hide');
+						window.location.assign("/bubbaLyrics/index.php?action=profile");
+					}
 				});
 				
 			});	

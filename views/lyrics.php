@@ -15,12 +15,13 @@
 		<br /><br />
 		
 		<div class="col-lg-2"></div>
+		
 		<div class="col-lg-2">
 		<?php if(isset($_SESSION['spotifyUserId']) && $_SESSION['spotifyUserId'] != NULL) { ?>
 		<?php $api = unserialize($_SESSION['api']);$me = $api->me();$playlists = $api->getUserPlaylists($me->id, array('limit' => 20));?>
 			<div class="container-fluid playlistOptions center">
 			  <!-- Trigger the modal with a button -->
-			  <button type="button" class="btn btn-success btn-sm songPlaylist" data-toggle="modal" data-target="#addSongPlaylist">Add to Playlist</button>
+			  <div id="addButton"></div>
 
 			  <!-- Modal -->
 			  <div class="modal fade" id="addSongPlaylist" role="dialog">
@@ -41,13 +42,14 @@
 						$playlistId = $playlist->id;
 						
 						//display a link to the playlist with the playlist name as the title
-						echo "<a href='javascript:addSongPlaylist(&quot;" . $playlistId . "&quot;);' class='list-group-item'>" . $playlistName . "</a>";
+						echo "<a href='javascript:setPlaylistId(&quot;" . $playlistId . "&quot;);' class='list-group-item'>" . $playlistName . "</a>";
 					}
 					echo "</div>";
 					?>
+					<div id="addFeedback"></div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" id="addSongPlaylistButton" class="btn btn-success" data-dismiss="modal">Add</button>
+						<button type="button" id="addSongPlaylistButton" class="btn btn-success">Add</button>
 					  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				  </div>
@@ -57,12 +59,9 @@
 			  
 			</div>
 			
-			
-			
-			
 			<div class="container-fluid playlistOptions center">
 			  <!-- Trigger the modal with a button -->
-			  <button type="button" class="btn btn-danger btn-sm songPlaylist" data-toggle="modal" data-target="#removeSongPlaylist">Remove from Playlist</button>
+			  <div id="removeButton"></div>
 
 			  <!-- Modal -->
 			  <div class="modal fade" id="removeSongPlaylist" role="dialog">
@@ -83,13 +82,14 @@
 						$playlistId = $playlist->id;
 						
 						//display a link to the playlist with the playlist name as the title
-						echo "<a href='javascript:removeSongPlaylist(&quot;" . $playlistId . "&quot;);' class='list-group-item'>" . $playlistName . "</a>";
+						echo "<a href='javascript:setPlaylistId(&quot;" . $playlistId . "&quot;);' class='list-group-item'>" . $playlistName . "</a>";
 					}
 					echo "</div>";
 					?>
+					<div id="removeFeedback"></div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" id="removeSongPlaylistButton" class="btn btn-danger" data-dismiss="modal">Remove</button>
+						<button type="button" id="removeSongPlaylistButton" class="btn btn-danger">Remove</button>
 					  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				  </div>
