@@ -46,8 +46,8 @@
 			getLyric(data.message.body.track.track_id);	
 			
 			if(spotifyId != "") {
-				$('#addButton').html('<button type="button" class="btn btn-success btn-sm songPlaylist" data-toggle="modal" data-target="#addSongPlaylist" id="addButton">Add to Playlist</button>');
-				$('#removeButton').html('<button type="button" class="btn btn-danger btn-sm songPlaylist" data-toggle="modal" data-target="#removeSongPlaylist" id="removeButton">Remove from Playlist</button>');
+				$('#addButton').html('<a href="#" class="songPlaylist" data-toggle="modal" data-target="#addSongPlaylist" id="addButton"><span class="glyphicon glyphicon-plus-sign"></span> Add to Playlist</a>');
+				$('#removeButton').html('<a href="#" class="songPlaylist" data-toggle="modal" data-target="#removeSongPlaylist" id="removeButton"><span class="glyphicon glyphicon-minus-sign"></span> Remove from Playlist</a>');
 			}
 		});
 	}

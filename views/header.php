@@ -4,7 +4,7 @@
     <title>Bubba Lyrics</title>  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="/bubbaLyrics/styles/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="/bubbaLyrics/styles/bubbaLyrics.ico" />
     <script src="/bubbaLyrics/styles/jquery/jquery.min.js"></script>
 	<script src="/bubbaLyrics/styles/jquery-ui/jquery-ui.min.js"></script>
 	<link rel="stylesheet" href="/bubbaLyrics/styles/jquery-ui/jquery-ui.min.css">
