@@ -23,7 +23,7 @@
 			});	
 		});
 		
-		$('#updatePlaylistModel').click(function(){
+		$('#updatePlaylistModal').click(function(){
 			$('#updatePlaylistFeedback').html("<p></p>");
 		});
 		
