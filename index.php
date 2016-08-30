@@ -11,6 +11,25 @@ require("models/functions.php");
 //catch the action of this script
 $action = $_REQUEST['action'];
 
+if($action == "addSongPlaylist"){
+	$playlistId = $_POST['playlistId'];
+	$songId = $_POST['songId'];
+	$api = unserialize($_SESSION['api']);
+	$api->addUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, array($songId));
+
+	exit();
+}
+
+if($action == "removeSongPlaylist"){
+	$playlistId = $_POST['playlistId'];
+	$songId = $_POST['songId'];
+	$api = unserialize($_SESSION['api']);
+	$track = array(array('id' => $songId));
+	$api->deleteUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, $track);
+
+	exit();
+}
+
 if($action == "createPlaylist"){
 	$playlistName = $_POST['playlistName'];
 	$api = unserialize($_SESSION['api']);

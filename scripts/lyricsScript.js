@@ -16,6 +16,9 @@
 		htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li><a href='/bubbaLyrics/index.php?action=searchResults'>Search</a></li><li><a href='/bubbaLyrics/index.php?action=artist'>Artist</a></li><li class='active'>Lyrics</li>";
 		document.getElementById('breadCrumbs').innerHTML = htmlString;	
 	}
+	
+	var spotifyId;
+	var spotifyPlaylistId;
 
 	//get informaition for the songId of the selected song
 	getSong = function(songId){
@@ -38,7 +41,7 @@
 			document.getElementById('lyricTitle').innerText = data.message.body.track.artist_name;
 			document.getElementById('albumTitle').innerText = data.message.body.track.album_name;
 			document.getElementById('songTitle').innerText = data.message.body.track.track_name;
-			var spotifyId = data.message.body.track.track_spotify_id;
+			spotifyId = data.message.body.track.track_spotify_id;
 			createWidget(spotifyId);
 			getLyric(data.message.body.track.track_id);	
 		});
@@ -79,11 +82,37 @@
 		document.getElementById('playWidget').innerHTML = widgetString;
 	}
 	
+	addSongPlaylist = function(playlistId){
+		spotifyPlaylistId = playlistId;
+	}
+	
+	removeSongPlaylist = function(playlistId){
+		spotifyPlaylistId = playlistId;
+	}
+	
 	$(document).ready(function(){
 		//get the songId chosen in the artistScript
 		songId = localStorage.getItem("songId");
 		
 		//run a function that uses the songId to get information for that song
 		getSong(songId);
+		
+		$('#addSongPlaylistButton').click(function(){
+			$.post("/bubbaLyrics/index.php?action=addSongPlaylist",
+			{
+				playlistId: spotifyPlaylistId,
+				songId: spotifyId
+			},
+			function(data, status){});	
+		});
+		
+		$('#removeSongPlaylistButton').click(function(){
+			$.post("/bubbaLyrics/index.php?action=removeSongPlaylist",
+			{
+				playlistId: spotifyPlaylistId,
+				songId: spotifyId
+			},
+			function(data, status){});	
+		});
 	});
 }())

@@ -1,3 +1,4 @@
+<?php if(isset($_SESSION['spotifyUserId']) && $_SESSION['spotifyUserId'] != NULL){ ?>
 <script type="text/javascript" src="/bubbaLyrics/scripts/profileScript.js"></script>
 
 <div class="container-fluid">
@@ -46,10 +47,44 @@
 		</div>
 		
 		<div class="col-md-4">
-
+		<div class="row center">
 		<br />
 		
-		<div class="container-fluid float-right playlistOptions">
+			<div class="container-fluid inline-block playlistOptions">
+		  <!-- Trigger the modal with a button -->
+		  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#createPlaylistModal">Create Playlist</button>
+
+		  <!-- Modal -->
+		  <div class="modal fade" id="createPlaylistModal" role="dialog">
+			<div class="modal-dialog">
+			
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">Create Playlist</h4>
+				</div>
+				<div class="modal-body">
+				
+				<form>
+					<div class="form-group">
+					  <label for="createPlaylistName">Playlist Name:</label>
+					  <input type="text" class="form-control" id="createPlaylistName">
+					</div>
+				 </form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="createPlaylistButton" class="btn btn-primary" data-dismiss="modal">Create</button>
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			  
+			</div>
+		  </div>
+		  
+		</div>
+		
+		<div class="container-fluid inline-block playlistOptions">
 		  <!-- Trigger the modal with a button -->
 		  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#updatePlaylistModal">Update Playlist</button>
 
@@ -96,40 +131,9 @@
 		  
 		</div>
 		
-		
-		<div class="container-fluid float-right playlistOptions">
-		  <!-- Trigger the modal with a button -->
-		  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#createPlaylistModal">Create Playlist</button>
-
-		  <!-- Modal -->
-		  <div class="modal fade" id="createPlaylistModal" role="dialog">
-			<div class="modal-dialog">
-			
-			  <!-- Modal content-->
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <button type="button" class="close" data-dismiss="modal">&times;</button>
-				  <h4 class="modal-title">Create Playlist</h4>
-				</div>
-				<div class="modal-body">
-				
-				<form>
-					<div class="form-group">
-					  <label for="createPlaylistName">Playlist Name:</label>
-					  <input type="text" class="form-control" id="createPlaylistName">
-					</div>
-				 </form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="createPlaylistButton" class="btn btn-primary" data-dismiss="modal">Create</button>
-				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			  </div>
-			  
-			</div>
-		  </div>
-		  
 		</div>
+		
+		<div class="row">
 		
 		<div class="container-fluid playlistContainer">
 			<?php
@@ -152,4 +156,6 @@
 			?>
 		</div>
 	</div>
+	</div>
 </div>
+<?php } else {header('Location: /bubbaLyrics/index.php');}?>

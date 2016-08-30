@@ -69,7 +69,6 @@ body{
 .playlist{
 	height:14em;
 	width:14em;
-	margin-right: 2em;
 	margin-bottom: 1em;
 }
 
@@ -107,10 +106,15 @@ body{
 	float:right;
 }
 
+.songPlaylist{
+	width: 15em;
+}
+
 .playlistContainer{
 	width: 100%;
 	height:40em;
 	overflow:auto;
+	text-align: center;
 }
 
 #articleContainer{
