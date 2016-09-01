@@ -16,17 +16,25 @@ if($action == "addSongPlaylist"){
 	$songId = $_POST['songId'];
 	$api = unserialize($_SESSION['api']);
 	
-	$playlistTracks = $api->getUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId);
-	foreach ($playlistTracks->items as $track) {
-		$track = $track->track;
-		if($track->id == $songId) {
-			echo "This song already exists in the selected playlist!";
+	$playlists = $api->getUserPlaylists($_SESSION['spotifyUserId'], array('limit' => 20));
+	foreach ($playlists->items as $aPlaylist) {
+		if ($playlistId == $aPlaylist->id) {
+			$playlistTracks = $api->getUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId);
+			foreach ($playlistTracks->items as $track) {
+				$track = $track->track;
+				if($track->id == $songId) {
+					echo "This song already exists in the selected playlist!";
+					exit();
+				}
+			}
+			$api->addUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, array($songId));
 			exit();
+		} else {
+			$feedback = "You are not the owner of this playlist!";
 		}
+		echo $feedback;
+		exit();
 	}
-	
-	$api->addUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, array($songId));
-	exit();
 }
 
 if($action == "removeSongPlaylist"){
@@ -34,19 +42,29 @@ if($action == "removeSongPlaylist"){
 	$songId = $_POST['songId'];
 	$api = unserialize($_SESSION['api']);
 	
-	$playlistTracks = $api->getUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId);
-	foreach ($playlistTracks->items as $track) {
-		$track = $track->track;
-		if($track->id == $songId) {
-			$delTrack = array(array('id' => $songId));
-			$api->deleteUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, $delTrack);
+	
+	$playlists = $api->getUserPlaylists($_SESSION['spotifyUserId'], array('limit' => 20));
+	foreach ($playlists->items as $aPlaylist) {
+		if ($playlistId == $aPlaylist->id) {
+			$playlistTracks = $api->getUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId);
+			foreach ($playlistTracks->items as $track) {
+				$track = $track->track;
+				if($track->id == $songId) {
+					$delTrack = array(array('id' => $songId));
+					$api->deleteUserPlaylistTracks($_SESSION['spotifyUserId'], $playlistId, $delTrack);
+					exit();
+				} else {
+					$feedback = "This song doesn't exist in the selected playlist!";
+				}
+			}	
+			echo $feedback;
 			exit();
 		} else {
-			$feedback = "This song doesn't exist in the selected playlist!";
+			$feedback = "You are not the owner of this playlist!";
 		}
-	}	
-	echo $feedback;
-	exit();
+		echo $feedback;
+		exit();
+}
 }
 
 if($action == "createPlaylist"){

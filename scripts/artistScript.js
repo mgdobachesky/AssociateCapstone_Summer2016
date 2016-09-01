@@ -112,7 +112,6 @@
 				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
 				artist_id:data.message.body.artist.artist_id,
 				g_album_name:1,
-				s_release_date:"DESC",
 				format:"jsonp",
 				page_size:10,
 				page:pageNum,
