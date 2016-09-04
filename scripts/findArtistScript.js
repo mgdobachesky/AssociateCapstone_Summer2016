@@ -32,26 +32,6 @@
 
 	//get information from an API, then run another function with that data as input
 	getData = function(pageNum){
-		//the chart.artists.get part of the musixmatch api is not working for some reason, so I am commenting it out and replacing it for the time being
-		/*$.ajax({
-			type: "GET",
-			data: {
-				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
-				s_artist_rating:"DESC",
-				country:"US",
-				page:pageNum,
-				page_size:12,
-				format:"jsonp",
-				callback:"jsonp_callback"
-			},
-			url: "http://api.musixmatch.com/ws/1.1/chart.artists.get?",
-			dataType: "jsonp",
-			jsonpCallback: 'jsonp_callback',
-			contentType: 'application/json'
-		})
-		.done(function(data){
-			fillLetter(data);
-		});*/
 		$.ajax({
 			type: "GET",
 			data: {

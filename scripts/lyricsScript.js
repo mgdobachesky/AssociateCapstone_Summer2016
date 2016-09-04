@@ -17,6 +17,7 @@
 		document.getElementById('breadCrumbs').innerHTML = htmlString;	
 	}
 	
+	//clear the spotifyId and spotifyPlaylistId so that each run of the script is fresh
 	var spotifyId = "";
 	var spotifyPlaylistId = "";
 
@@ -45,6 +46,7 @@
 			createWidget(spotifyId);
 			getLyric(data.message.body.track.track_id);	
 			
+			//if this song has a spotify id, give the playlist manipulation links the opportunity to be shown, assuming a user is also logged in
 			if(spotifyId != "") {
 				$('#addButton').html('<a href="#" class="songPlaylist" data-toggle="modal" data-target="#addSongPlaylist" id="addButton"><span class="glyphicon glyphicon-plus-sign"></span> Add to Playlist</a>');
 				$('#removeButton').html('<a href="#" class="songPlaylist" data-toggle="modal" data-target="#removeSongPlaylist" id="removeButton"><span class="glyphicon glyphicon-minus-sign"></span> Remove from Playlist</a>');
@@ -80,6 +82,7 @@
 		});
 	}
 
+	//if the song has a spotify id, create it a widget that has an mp3 of the song
 	createWidget = function(spotifyId){
 		if(spotifyId != "") {
 			var height = screen.height/10;
@@ -89,6 +92,7 @@
 		}
 	}
 	
+	//this is a function that sets the spotifyPlaylistId to be manipulated when further action is taken
 	setPlaylistId = function(playlistId){
 		spotifyPlaylistId = playlistId;
 	}
@@ -100,21 +104,26 @@
 		//run a function that uses the songId to get information for that song
 		getSong(songId);
 		
+		//when a user clicks the button to add a song, clear old feedback
 		$('#addSongPlaylist').click(function(event){
 			$('#addFeedback').html("<p></p>");
 		});
 		
+		//when a user clicks the button to remove a song, clear old feedback
 		$('#removeSongPlaylist').click(function(event){
 			$('#removeFeedback').html("<p></p>");
 		});
 		
+		//when a user chooses to add a song, post the data to the controller
 		$('#addSongPlaylistButton').click(function(event){
 			$.post("/bubbaLyrics/index.php?action=addSongPlaylist",
 			{
 				playlistId: spotifyPlaylistId,
 				songId: spotifyId
 			},
+			//show feedback if there was an error, or else hide the modal
 			function(data, status){
+				//data will only exist if there was an error
 				if(data) {
 					$('#addFeedback').html("<p>" + data + "</p>");
 				} else {
@@ -123,13 +132,16 @@
 			});	
 		});
 		
+		//when a user chooses to remove a song, post the data to the controller
 		$('#removeSongPlaylistButton').click(function(event){
 			$.post("/bubbaLyrics/index.php?action=removeSongPlaylist",
 			{
 				playlistId: spotifyPlaylistId,
 				songId: spotifyId
 			},
+			//show feedback if there was an error, or else hide the modal
 			function(data, status){
+				//data will only exist if there was an error
 				if(data) {
 					$('#removeFeedback').html("<p>" + data + "</p>");
 				} else {

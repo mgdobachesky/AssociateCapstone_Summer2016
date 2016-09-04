@@ -5,6 +5,7 @@ require("/models/cmsDbConn.php");
 require("/models/cmsFunctions.php");
 //request the action that determines where to direct the user
 $action = $_REQUEST['action'];
+
 //this switch is mainly used for passing database information to ajax
 switch ($action):
 	//case the stores a note into the db
@@ -34,14 +35,17 @@ switch ($action):
 		exit();
 	break;
 endswitch;
+
 //the header is included for all other actions, which require html pages to be compiled
 include("/views/cmsHeader.php");
+
 //this conditional statement is used to direct the user to the home page if the action is not assigned
 if($action == NULL || empty($action)):
 	//grab the admin notes from the database
 	$notesList = getAdminNotes($db);
 	include("/views/cmsHome.php");
 endif;
+
 //this switch is used for supplying the content of to-be-compiled html pages
 //it also handles the loggin in and out of users
 switch($action):
@@ -85,6 +89,7 @@ switch($action):
 		header('Location: /bubbaLyrics/cms/index.php');
 	break;
 endswitch;
+
 //this switch is used for the handling of database interactions
 switch ($action):
 	//case that is used to upload carousel information
@@ -167,6 +172,7 @@ switch ($action):
 		include("/views/cmsHome.php");
 	break;
 endswitch;
+
 //the footer is added after an html page content has been compiled to seal the page
 include("/views/cmsFooter.php");
 ?>

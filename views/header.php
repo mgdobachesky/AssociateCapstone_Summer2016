@@ -32,7 +32,7 @@
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ol id="breadCrumbs" class="breadcrumb hidden-xs"></ol>
 							<ul class="nav navbar-nav navbar-right">
-							<?php if ($_SESSION['api'] != NULL && !empty($_SESSION['api'])) { ?>
+							<?php if ($_SESSION['spotifyUserId'] != NULL && !empty($_SESSION['spotifyUserId'])) { ?>
 								<li><a href="/bubbaLyrics/index.php?action=profile" id="btnProfile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 								<li><a href="javascript:logoutBox();" id="btnLogout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
 							<?php } else { ?>

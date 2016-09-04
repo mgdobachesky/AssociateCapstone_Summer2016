@@ -88,12 +88,14 @@
 			contentType: 'application/json'
 		})
 		.done(function(data){
+			//get the artists name and sent it to the controller script to be converted into a spotify id
 			postName = data.message.body.artist.artist_name;
 			$.post("/bubbaLyrics/index.php?action=getArtist",
 			{
 				name: postName
 			},
 			function(data, status){
+				//if everything went well, create an iframe with a widget that allows a logged in user to follow an artist
 				if(data) {
 					document.getElementById('followArtist').innerHTML = "<iframe id='followArtist' src='https://embed.spotify.com/follow/1/?uri=spotify:artist:" + data + "&size=detail&theme=light' width='300' height='56' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' allowtransparency='true'></iframe>";
 				}
