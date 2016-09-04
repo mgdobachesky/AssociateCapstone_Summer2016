@@ -62,6 +62,7 @@ if($action == "removeSongPlaylist"){
 	//get the playlist and song id to remove
 	$playlistId = $_POST['playlistId'];
 	$songId = $_POST['songId'];
+	$feedback = "";
 	//instantiate the spotify api
 	$api = unserialize($_SESSION['api']);
 	//set the playlists variable with the playlists that the user owns
@@ -89,11 +90,15 @@ if($action == "removeSongPlaylist"){
 				}
 			//if the playlist under question is not the playlist to be manipulated, set an error
 			} else {
-				$feedback = "You are not the owner of this playlist!";
+				if($feedback == "") {
+					$feedback = "You are not the owner of this playlist!";
+				}
 			}
 		//if the user does not own the playlist under question, set an error
 		} else {
-			$feedback = "You are not the owner of this playlist!";
+			if($feedback == "") {
+				$feedback = "You are not the owner of this playlist!";
+			}
 		}
 	}
 	//if you made it this far then there was an error, echo it and then exit
