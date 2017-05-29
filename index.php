@@ -190,9 +190,9 @@ if($_SESSION['spotifyUserId']) {
 if($action == "login" || isset($_GET['code']) && $action != "profile") {
 	//create a variable to hold the return value of a method that has the login information passed in
 	$session = new SpotifyWebAPI\Session(
-		'79e1533a10f148bc9488feffa632ff63',
-		'd213c38bbe224dd0acfe17ba43d12a73',
-		'http://localhost/bubbaLyrics/index.php/callback/'
+		'[SESSION_INFO]',
+		'[SESSION_INFO]]',
+		'[CALLBACK_LOCATION]'
 	);
 	//create a variable that holds the spotify api
 	$api = new SpotifyWebAPI\SpotifyWebAPI();
@@ -221,7 +221,7 @@ if($action == "login" || isset($_GET['code']) && $action != "profile") {
 				'user-read-private',
 				'playlist-modify-private',
 				'playlist-modify-public',
-				'playlist-read-private',	
+				'playlist-read-private',
 			),
 		);
 		//validate the permissions and redirect to the authorized BubbaLyrics homepage
@@ -258,7 +258,7 @@ switch ($action):
 	//load the artist information page
 	case "artist":
 		include("views/artist.php");
-	break;	
+	break;
 	//load the page that allows you to choose an artist
 	case "findArtist":
 		include("views/findArtist.php");

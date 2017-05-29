@@ -15,7 +15,7 @@
 		$.ajax({
 			type: "GET",
 			data: {
-				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
+				apikey:"[API_KEY]",
 				q_artist:searchContent,
 				s_artist_rating:"DESC",
 				page:pageNum,
@@ -32,7 +32,7 @@
 			fillLetter(data);
 		});
 	}
-	
+
 	//use the result set to create a list of matched songs as clickable links
 	fillLetter = function(data) {
 		document.getElementById('tblSearchResults').innerHTML = "";
@@ -43,7 +43,7 @@
 			document.getElementById('tblSearchResults').innerHTML += htmlString;
 		}
 	}
-	
+
 	//when a link has been clicked, store the id for that artist then redirect the user to the the artist page
 	linkSearchClick = function(artistId, artistMbid) {
 		localStorage.setItem("artistId", artistId);
@@ -54,13 +54,13 @@
 	$(document).ready(function(){
 		//set the page number for the result set to 1
 		var pageNum = 1;
-		
+
 		//get the text that the user typed into the textbox, which was saved to local storage in the headerScript
 		searchContent = localStorage.getItem("searchContent");
-		
+
 		//run a function that gets a result set based on what a user searched, starting with the first page of results
 		getContent(pageNum, searchContent);
-		
+
 		//when the previous button is clicked, display the previous page of results
 		$('#lnkSearchPrev').click(function(event){
 			if(pageNum == 0){
@@ -68,7 +68,7 @@
 			}
 			getContent(--pageNum, searchContent);
 		});
-		
+
 		//when the next button is clicked, display the next page of results
 		$('#lnkSearchNxt').click(function(event){
 			if(pageNum == 0){

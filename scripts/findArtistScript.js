@@ -7,11 +7,11 @@
 	//fromWhere used to determine how the breadcrumbs will be set later on
 	var fromWhere = "top";
 	localStorage.setItem("fromWhere", fromWhere);
-		
+
 	//append to the nav bar the breadcrumbs for this page
 	htmlString = "<li><a href='/bubbaLyrics/index.php'>Home</a></li><li class='active'>Top Artists</li>";
 	document.getElementById('breadCrumbs').innerHTML = htmlString;
-		
+
 	//display each artist from the dataset as a clickable link
 	fillLetter = function(data) {
 		document.getElementById('tblArtists').innerHTML = "";
@@ -35,7 +35,7 @@
 		$.ajax({
 			type: "GET",
 			data: {
-				apikey:"74a4faf48aaa62dbbaa400179d5fc478",
+				apikey:"[API_KEY]",
 				s_artist_rating:"DESC",
 				page:pageNum,
 				page_size:15,
@@ -56,7 +56,7 @@
 		//display the list of artists, starting with the first page
 		var pageNum = 1;
 		getData(pageNum);
-		
+
 		//display the previous list of artists when previous is clicked
 		$('#lnkPrev').click(function(event){
 			if(pageNum == 0){
@@ -64,7 +64,7 @@
 			}
 			getData(--pageNum);
 		});
-		
+
 		//display the next list of artists when next is clicked
 		$('#lnkNxt').click(function(event){
 			if(pageNum == 0){
