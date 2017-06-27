@@ -6,11 +6,11 @@
 	$username = "bubbalyrics";
 
 	//store the password in a variable
-	$password = "password";
+	$password = "PASSWORD";
 
 	//try to connect to the database
 	try {
-		//create a new PDO object using the previously stored credentials
+		//create a new PDO object using the stored credentials
 		$db = new PDO($dsn, $username, $password);
 		
 		//use the line below for testing

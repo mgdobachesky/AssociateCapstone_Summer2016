@@ -6,7 +6,7 @@
 	$username = "bubbalyrics";
 
 	//store the password in a variable
-	$password = "password";
+	$password = "PASSWORD";
 
 	//try to connect to the database
 	try {
